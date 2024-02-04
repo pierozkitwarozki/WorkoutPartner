@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tEVuBHYlv4urQtMcspmTJAqFuHNxJF7sWTzHINV4BccBdTeXrUcObm34xmwfnMMGA8D68nJVij+7Z6G9OND4fw==",
+  "dgSpecHash": "vmL6nAQUmj7+mt3PIYyT2+h7k/JFKLYXyjsgwqF3/hBmk5B4Vz/KJcexphJDnMfiWfLvZhGA1T3bRdmJg8zung==",
   "success": true,
-  "projectFilePath": "/Users/bartlomiejpierog/Projekty/WorkoutPartner/API/API.csproj",
+  "projectFilePath": "/Users/bartlomiejpierog/Projekty/WorkoutPartner/API/WorkoutPartner.API.csproj",
   "expectedPackageFiles": [
     "/Users/bartlomiejpierog/.nuget/packages/microsoft.aspnetcore.openapi/8.0.1/microsoft.aspnetcore.openapi.8.0.1.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("API")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("WorkoutPartner.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+67f82f2a4ffefdf433ec6c35d22244eca0048187")]
-[assembly: System.Reflection.AssemblyProductAttribute("API")]
-[assembly: System.Reflection.AssemblyTitleAttribute("API")]
+[assembly: System.Reflection.AssemblyProductAttribute("WorkoutPartner.API")]
+[assembly: System.Reflection.AssemblyTitleAttribute("WorkoutPartner.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Wygenerowane przez klasę WriteCodeFragment programu MSBuild.
