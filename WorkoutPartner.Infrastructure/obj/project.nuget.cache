@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "88pUn5qKNJZTWVhEt3KUp7+o05Nz6CQRpuAu4fwfFwqZmJ4tly9yXsaUZ8vrxBFkj+4GQspkOEESXylpQdsmOw==",
+  "dgSpecHash": "nbsB18M2nRTh3ftqOMpTh9Tt21asU7VOLydf3z7f+1RcyYI6duC/wClOj6BdGUWUUJQ8Zpg1Bae8ETiQ0JiwRQ==",
   "success": true,
   "projectFilePath": "/Users/bartlomiejpierog/Projekty/WorkoutPartner/WorkoutPartner.Infrastructure/WorkoutPartner.Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/bartlomiejpierog/.nuget/packages/mediatr/12.2.0/mediatr.12.2.0.nupkg.sha512",
+    "/Users/bartlomiejpierog/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/Users/bartlomiejpierog/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
