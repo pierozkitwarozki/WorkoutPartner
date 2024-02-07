@@ -1,5 +1,4 @@
 using WorkoutPartner.API.Endpoints;
-using WorkoutPartner.Domain.Database.Models;
 using WorkoutPartner.Infrastructure.Configuration;
 using Environment = WorkoutPartner.Domain.Configuration.Environment;
 
@@ -15,10 +14,9 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    app.MapSwagger();
     app.UseSwaggerUI();
 }
 
