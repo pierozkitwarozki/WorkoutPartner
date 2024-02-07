@@ -1,9 +1,15 @@
 using WorkoutPartner.API.Endpoints;
+using WorkoutPartner.Domain.Database.Models;
 using WorkoutPartner.Infrastructure.Configuration;
+using Environment = WorkoutPartner.Domain.Configuration.Environment;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.ConfigureServices();
+var environment = builder.Environment.IsProduction()
+    ? Environment.Production
+    : Environment.Development;
+
+builder.Services.ConfigureServices(builder.Configuration, environment);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

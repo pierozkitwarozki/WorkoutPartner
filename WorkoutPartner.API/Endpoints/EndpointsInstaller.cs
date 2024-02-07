@@ -1,5 +1,6 @@
 using System.Collections.Immutable;
 using System.Reflection;
+using WorkoutPartner.Domain.Database.Models;
 
 namespace WorkoutPartner.API.Endpoints;
 
@@ -23,6 +24,8 @@ public static class EndpointsInstaller
 
             MapEndpointsInGroup(groupBuilder, endpoints);
         }
+        
+        application.MapIdentityApi<User>();
     }
 
     private static void MapEndpointsInGroup(RouteGroupBuilder group, ImmutableArray<IEndpointBase?>? endpoints)
