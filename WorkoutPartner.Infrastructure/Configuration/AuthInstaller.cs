@@ -11,7 +11,7 @@ internal static class AuthInstaller
         // TODO: Play with some features here
         services
             .AddAuthorization()
-            .AddIdentityApiEndpoints<User>()
+            .AddIdentityApiEndpoints<ApplicationUser>()
             .AddEntityFrameworkStores<DatabaseContext>();
 
         return services;

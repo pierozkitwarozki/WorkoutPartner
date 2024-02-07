@@ -25,7 +25,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/bartlomiejpierog/Projekty/WorkoutPartner/WorkoutPartner.Domain/WorkoutPartner.Domain.csproj": {
+                "projectPath": "/Users/bartlomiejpierog/Projekty/WorkoutPartner/WorkoutPartner.Domain/WorkoutPartner.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

@@ -24,7 +24,7 @@ public static class EndpointsInstaller
 
             if (endpointGroup.Key is RouteGroupNames.Auth)
             {
-                groupBuilder.MapIdentityApi<User>();
+                groupBuilder.MapIdentityApi<ApplicationUser>();
             }
             
             var endpoints = endpointGroup.ToImmutableArray();

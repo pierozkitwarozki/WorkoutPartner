@@ -11,7 +11,7 @@ using WorkoutPartner.Infrastructure.Database;
 namespace WorkoutPartner.API.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240207174355_Initial")]
+    [Migration("20240207221933_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -148,7 +148,7 @@ namespace WorkoutPartner.API.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("WorkoutPartner.Domain.Database.Models.User", b =>
+            modelBuilder.Entity("WorkoutPartner.Domain.Database.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -165,6 +165,9 @@ namespace WorkoutPartner.API.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Height")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("LockoutEnabled")
@@ -200,6 +203,9 @@ namespace WorkoutPartner.API.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
 
+                    b.Property<double?>("Weight")
+                        .HasColumnType("REAL");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -223,7 +229,7 @@ namespace WorkoutPartner.API.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("WorkoutPartner.Domain.Database.Models.User", null)
+                    b.HasOne("WorkoutPartner.Domain.Database.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -232,7 +238,7 @@ namespace WorkoutPartner.API.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("WorkoutPartner.Domain.Database.Models.User", null)
+                    b.HasOne("WorkoutPartner.Domain.Database.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -247,7 +253,7 @@ namespace WorkoutPartner.API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WorkoutPartner.Domain.Database.Models.User", null)
+                    b.HasOne("WorkoutPartner.Domain.Database.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -256,7 +262,7 @@ namespace WorkoutPartner.API.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("WorkoutPartner.Domain.Database.Models.User", null)
+                    b.HasOne("WorkoutPartner.Domain.Database.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
