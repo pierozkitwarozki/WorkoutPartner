@@ -14,9 +14,9 @@ public class UpdateUserEndpoint : IEndpointBase
     public RouteHandlerBuilder MapEndpoint(RouteGroupBuilder builder)
     {
         return builder.MapPut(Route, async (
-            [FromBody]UpdateUserRequest payload,
+            [FromBody] UpdateUserRequest payload,
             HttpContext context,
-            [FromServices]IMediator mediator) =>
+            [FromServices] IMediator mediator) =>
         {
             var command = new UpdateUserCommand
             {
@@ -26,14 +26,14 @@ public class UpdateUserEndpoint : IEndpointBase
 
             var result = await mediator.Send(command);
 
-            if (result is { IsFailure: true, Error.Type: nameof(NotFoundError) })
+            return result switch
             {
-                return Results.NotFound(result.Error.Description);
-            }
-
-            return result.IsFailure 
-                ? Results.BadRequest() 
-                : TypedResults.Ok();
-        }).RequireAuthorization();
+                { IsFailure: true, Error.Type: nameof(NotFoundError) } => Results.NotFound(result.Error.Description),
+                { IsFailure: true, Error.Type: nameof(ValidationError) } => Results.UnprocessableEntity(result.Error
+                    .Description),
+                _ => result.IsFailure ? Results.BadRequest() : TypedResults.Ok()
+            };
+        });
+        //.RequireAuthorization();
     }
 }

@@ -61,6 +61,5 @@ public class DatabaseContext(DbContextOptions<DatabaseContext> options) : Identi
             .HasOne(e => e.User)
             .WithMany(e => e.WorkoutRecords)
             .HasForeignKey(e => e.UserId);
-
     }
 }

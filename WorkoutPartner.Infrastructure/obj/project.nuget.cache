@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QPRCjftTcC0qpeQwMd2ARD2gsx3as43ISK92NBCobIIwk6qhNljBN5g0AdLKMiuq9s0qMECTUCNYbUmTKCK5AQ==",
+  "dgSpecHash": "XOdJp+LzMVkhjtPVW9x0zrimRrjaMYUtq80BfB82vgu5eVvGZ2vXSxuvi+reQ6inpQq+jLaT+GTjQ2pRkumsVg==",
   "success": true,
   "projectFilePath": "/Users/bartlomiejpierog/Projekty/WorkoutPartner/WorkoutPartner.Infrastructure/WorkoutPartner.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,8 @@
     "/Users/bartlomiejpierog/.nuget/packages/duende.identityserver.entityframework/6.0.4/duende.identityserver.entityframework.6.0.4.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/duende.identityserver.entityframework.storage/6.0.4/duende.identityserver.entityframework.storage.6.0.4.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/duende.identityserver.storage/6.0.4/duende.identityserver.storage.6.0.4.nupkg.sha512",
+    "/Users/bartlomiejpierog/.nuget/packages/fluentvalidation/11.9.0/fluentvalidation.11.9.0.nupkg.sha512",
+    "/Users/bartlomiejpierog/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.9.0/fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/identitymodel/6.0.0/identitymodel.6.0.0.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/mediatr/12.2.0/mediatr.12.2.0.nupkg.sha512",

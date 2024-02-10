@@ -1,20 +1,25 @@
 namespace WorkoutPartner.Domain.ResultType;
 
-public class Result<T> where T : class
+public class Result(ResultError? error)
 {
-    public bool IsSuccess { get; init; }
-    public bool IsFailure { get; init; }
-    public ResultError? Error { get; init; }
+    public ResultError? Error { get; init; } = error;
+    public static Result Failure(ResultError error) => new(error);
+}
+
+public class Result<T>: Result where T : class
+{
+    public bool IsSuccess => Error is null;
+    public bool IsFailure => Error is not null;
+    
     public T? Value { get; init; }
 
-    private Result(bool isSuccess, ResultError? error, T? value)
+    // Stays public, so Activator.CreateInstance can use it.
+    public Result(ResultError? error, T? value) : base(error)
     {
-        IsSuccess = isSuccess;
-        IsFailure = !isSuccess;
         Error = error;
         Value = value;
     }
 
-    public static Result<T> Success(T? value = null) => new(true, null, value);
-    public static Result<T> Failure(ResultError error) => new(false, error, null);
+    public static Result<T> Success(T? value = null) => new(null, value);
+    public new static Result<T> Failure(ResultError error) => new(error, null);
 }

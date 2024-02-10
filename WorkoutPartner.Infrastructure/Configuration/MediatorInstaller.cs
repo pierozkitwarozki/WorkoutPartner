@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using WorkoutPartner.Infrastructure.PipelineBehaviors;
 
 namespace WorkoutPartner.Infrastructure.Configuration;
 
@@ -14,6 +15,7 @@ internal static class MediatorInstaller
         return services.AddMediatR(config =>
         {
             config.RegisterServicesFromAssembly(typeof(MediatorEntryPoint).Assembly);
+            config.AddOpenBehavior(typeof(ValidationBehavior<,>));
         });
     }
 }

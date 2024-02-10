@@ -21,6 +21,7 @@ public static class ServicesInstaller
         return serviceCollection
             .InstallDatabase(configuration, environment)
             .InstallAuth()
+            .InstallValidators()
             .InstallMediator();
     }
 }
