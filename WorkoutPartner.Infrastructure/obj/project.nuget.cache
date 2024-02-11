@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "XOdJp+LzMVkhjtPVW9x0zrimRrjaMYUtq80BfB82vgu5eVvGZ2vXSxuvi+reQ6inpQq+jLaT+GTjQ2pRkumsVg==",
+  "dgSpecHash": "XK2UwU/kSFKm/99o5yketE32CgQYJqR1LLlvWFuCSarcNb2Z0WiEHEc+qCtdUyN5hq+4caNOdraQt/YfbEjRCg==",
   "success": true,
   "projectFilePath": "/Users/bartlomiejpierog/Projekty/WorkoutPartner/WorkoutPartner.Infrastructure/WorkoutPartner.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/Users/bartlomiejpierog/.nuget/packages/automapper/11.0.0/automapper.11.0.0.nupkg.sha512",
+    "/Users/bartlomiejpierog/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/duende.identityserver/6.0.4/duende.identityserver.6.0.4.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/duende.identityserver.aspnetidentity/6.0.4/duende.identityserver.aspnetidentity.6.0.4.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/duende.identityserver.entityframework/6.0.4/duende.identityserver.entityframework.6.0.4.nupkg.sha512",
@@ -36,6 +37,7 @@
     "/Users/bartlomiejpierog/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.1/microsoft.entityframeworkcore.abstractions.8.0.1.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/microsoft.entityframeworkcore.analyzers/8.0.1/microsoft.entityframeworkcore.analyzers.8.0.1.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/microsoft.entityframeworkcore.design/8.0.1/microsoft.entityframeworkcore.design.8.0.1.nupkg.sha512",
+    "/Users/bartlomiejpierog/.nuget/packages/microsoft.entityframeworkcore.proxies/8.0.1/microsoft.entityframeworkcore.proxies.8.0.1.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/microsoft.entityframeworkcore.relational/8.0.1/microsoft.entityframeworkcore.relational.8.0.1.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/microsoft.entityframeworkcore.sqlite/8.0.1/microsoft.entityframeworkcore.sqlite.8.0.1.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/microsoft.entityframeworkcore.sqlite.core/8.0.1/microsoft.entityframeworkcore.sqlite.core.8.0.1.nupkg.sha512",
@@ -76,6 +78,7 @@
     "/Users/bartlomiejpierog/.nuget/packages/system.composition.hosting/6.0.0/system.composition.hosting.6.0.0.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/system.composition.runtime/6.0.0/system.composition.runtime.6.0.0.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/system.composition.typedparts/6.0.0/system.composition.typedparts.6.0.0.nupkg.sha512",
+    "/Users/bartlomiejpierog/.nuget/packages/system.diagnostics.eventlog/6.0.0/system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/system.identitymodel.tokens.jwt/6.15.1/system.identitymodel.tokens.jwt.6.15.1.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/system.io.pipelines/6.0.3/system.io.pipelines.6.0.3.nupkg.sha512",
     "/Users/bartlomiejpierog/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",

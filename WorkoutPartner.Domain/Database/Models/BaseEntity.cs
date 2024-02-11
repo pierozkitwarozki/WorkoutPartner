@@ -8,7 +8,7 @@ public abstract class BaseEntity
     /// <summary>
     /// Entity primary key
     /// </summary>
-    public required Guid Id { get; set; }
+    public required Guid Id { get; init; }
     /// <summary>
     /// Optional: description
     /// </summary>
@@ -16,5 +16,5 @@ public abstract class BaseEntity
     /// <summary>
     /// Created dateTimeOffset
     /// </summary>
-    public required DateTimeOffset CreatedAt { get; set; }
+    public required DateTimeOffset CreatedAt { get; init; }
 }

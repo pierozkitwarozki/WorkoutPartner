@@ -7,11 +7,11 @@ using WorkoutPartner.Domain.Database.Models;
 
 namespace WorkoutPartner.Application.Repositories.Implementations;
 
-public abstract class RepositoryBase<TEntity>(DatabaseContext databaseContext)
+public abstract class RepositoryBase<TEntity>(DatabaseContext databaseContext) 
     : IRepositoryBase<TEntity>
     where TEntity : BaseEntity
 {
-    protected readonly DatabaseContext DatabaseContext = databaseContext;
+    protected readonly DbSet<TEntity> DbSet = databaseContext.Set<TEntity>();
 
     public void Delete(TEntity? entity) 
     {
@@ -19,8 +19,7 @@ public abstract class RepositoryBase<TEntity>(DatabaseContext databaseContext)
         {
             return;
         }
-        DatabaseContext.Set<TEntity>();
-        DatabaseContext.Remove(entity);
+        DbSet.Remove(entity);
     }
 
     /// <inheritdoc/>
@@ -33,15 +32,13 @@ public abstract class RepositoryBase<TEntity>(DatabaseContext databaseContext)
             return;
         }
         
-        DatabaseContext.Set<TEntity>();
-        DatabaseContext.RemoveRange(baseEntities);
+        DbSet.RemoveRange(baseEntities);
     }
     
     /// <inheritdoc/>
     public async Task<TEntity?> GetByIdAsync(Guid id)
     {
-        DatabaseContext.Set<TEntity>();
-        var entity = await DatabaseContext.FindAsync<TEntity>(id);
+        var entity = await DbSet.FindAsync(id);
 
         return entity;
     }
@@ -49,8 +46,7 @@ public abstract class RepositoryBase<TEntity>(DatabaseContext databaseContext)
     /// <inheritdoc/>
     public void Update(TEntity entity)
     {
-        DatabaseContext.Set<TEntity>();
-        DatabaseContext.Update(entity);
+        DbSet.Update(entity);
     }
     
     /// <inheritdoc/>
@@ -63,8 +59,7 @@ public abstract class RepositoryBase<TEntity>(DatabaseContext databaseContext)
             return;
         }
         
-        DatabaseContext.Set<TEntity>();
-        DatabaseContext.UpdateRange(baseEntities);
+        DbSet.UpdateRange(baseEntities);
     }
 
     /// <inheritdoc/>
@@ -72,7 +67,7 @@ public abstract class RepositoryBase<TEntity>(DatabaseContext databaseContext)
         Expression<Func<TEntity, bool>> predicate,
         Expression<Func<SetPropertyCalls<TEntity>, SetPropertyCalls<TEntity>>> setPropertyCalls)
     {
-        return await DatabaseContext.Set<TEntity>()
+        return await DbSet
             .Where(predicate)
             .ExecuteUpdateAsync(setPropertyCalls) > -1;
     }
@@ -80,7 +75,7 @@ public abstract class RepositoryBase<TEntity>(DatabaseContext databaseContext)
     /// <inheritdoc/>
     public async Task<bool> ExecuteDeleteAsync(Expression<Func<TEntity, bool>> predicate)
     {
-        return await DatabaseContext.Set<TEntity>()
+        return await DbSet
             .Where(predicate)
             .ExecuteDeleteAsync() > -1;
     }
@@ -88,8 +83,7 @@ public abstract class RepositoryBase<TEntity>(DatabaseContext databaseContext)
     /// <inheritdoc/>
     public async Task AddAsync(TEntity entity)
     {
-        DatabaseContext.Set<TEntity>();
-        await DatabaseContext.AddAsync(entity);
+        await DbSet.AddAsync(entity);
     }
     
     /// <inheritdoc/>
@@ -102,14 +96,12 @@ public abstract class RepositoryBase<TEntity>(DatabaseContext databaseContext)
             return;
         }
         
-        DatabaseContext.Set<TEntity>();
-        await DatabaseContext.AddAsync(baseEntities);
+        await DbSet.AddRangeAsync(baseEntities);
     }
 
     /// <inheritdoc/>
     public async Task<bool> SaveChangesAsync()
     {
-        DatabaseContext.Set<TEntity>();
-        return await DatabaseContext.SaveChangesAsync() > -1;
+        return await databaseContext.SaveChangesAsync() > -1;
     }
 }

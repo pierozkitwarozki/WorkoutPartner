@@ -34,6 +34,7 @@ internal static class DatabaseInstaller
         var connectionString = configuration.GetConnectionString("Sqlite");
         services.AddDbContext<DatabaseContext>(options
             => options
+                .UseLazyLoadingProxies()
                 .UseSqlite(connectionString, 
                 c => c.MigrationsAssembly(AssemblyName)));
         return services;
@@ -46,7 +47,9 @@ internal static class DatabaseInstaller
     {
         var connectionString = configuration.GetConnectionString("Postgres");
         services.AddDbContext<DatabaseContext>(options
-            => options.UseNpgsql(connectionString, 
+            => options
+                .UseLazyLoadingProxies()
+                .UseNpgsql(connectionString, 
                 c => c.MigrationsAssembly(AssemblyName)));
         return services;
     }

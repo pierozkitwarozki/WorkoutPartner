@@ -13,13 +13,13 @@ public class ExerciseRecordWorkoutRecord
     /// Foreign key for exercise record
     /// </summary>
     public required Guid ExerciseRecordId { get; set; }
-    public ExerciseRecord? ExerciseRecord { get; set; }
+    public virtual ExerciseRecord? ExerciseRecord { get; set; }
 
     /// <summary>
     /// Foreign key for workout record
     /// </summary>
     public required Guid WorkoutRecordId { get; set; }
-    public WorkoutRecord? WorkoutRecord { get; set; }
+    public virtual WorkoutRecord? WorkoutRecord { get; set; }
 
     /// <summary>
     /// Exercise order in workout

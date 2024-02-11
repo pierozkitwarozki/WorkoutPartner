@@ -9,6 +9,8 @@ internal static class RepositoriesInstaller
     internal static IServiceCollection InstallRepositories(this IServiceCollection services)
     {
         services.AddScoped<IExerciseRepository, ExerciseRepository>();
+        services.AddScoped<IEquipmentRepository, EquipmentRepository>();
+        services.AddScoped<IExerciseEquipmentRepository, ExerciseEquipmentRepository>();
         return services;
     }
 }

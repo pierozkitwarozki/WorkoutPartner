@@ -3,22 +3,22 @@ using WorkoutPartner.Application.Commands;
 
 namespace WorkoutPartner.Infrastructure.Validators;
 
-public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>
+public class UserUpdateCommandValidator : AbstractValidator<UserUpdateCommand>
 {
-    public UpdateUserCommandValidator()
+    public UserUpdateCommandValidator()
     {
-        RuleFor(x => x.Data)
+        RuleFor(x => x.Request)
             .NotNull();
 
-        RuleFor(x => x.Data.Height)
+        RuleFor(x => x.Request.Height)
             .GreaterThanOrEqualTo(30)
             .LessThanOrEqualTo(350);
 
-        RuleFor(x => x.Data.Weight)
+        RuleFor(x => x.Request.Weight)
             .GreaterThanOrEqualTo(20)
             .LessThanOrEqualTo(1000);
 
-        RuleFor(x => x.Data.UserName)
+        RuleFor(x => x.Request.UserName)
             .MinimumLength(1)
             .MaximumLength(30);
 

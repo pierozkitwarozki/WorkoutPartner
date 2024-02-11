@@ -13,7 +13,7 @@ public class ExerciseSchema : BaseEntity
     /// <summary>
     /// User that created the schema
     /// </summary>
-    public ApplicationUser? User { get; set; }
+    public virtual ApplicationUser? User { get; set; }
     /// <summary>
     /// Exercise schema. To be figured out.
     /// </summary>
@@ -22,7 +22,7 @@ public class ExerciseSchema : BaseEntity
     /// Foreign key for exercise
     /// </summary>
     public required Guid ExerciseId { get; set; }
-    public Exercise? Exercise { get; set; }
-    public ICollection<ExerciseRecord>? ExerciseRecords { get; set; }
-    public ICollection<ExerciseSchemaWorkoutPlanSchema>? ExerciseSchemaWorkoutPlanSchemas { get; set; }
+    public virtual Exercise? Exercise { get; set; }
+    public virtual ICollection<ExerciseRecord>? ExerciseRecords { get; set; }
+    public virtual ICollection<ExerciseSchemaWorkoutPlanSchema>? ExerciseSchemaWorkoutPlanSchemas { get; set; }
 }

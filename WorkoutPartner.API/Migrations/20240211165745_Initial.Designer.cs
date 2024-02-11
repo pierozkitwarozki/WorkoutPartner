@@ -4,20 +4,25 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using WorkoutPartner.Application.Database;
 
 #nullable disable
 
 namespace WorkoutPartner.API.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20240210133514_Add exercise entities")]
-    partial class Addexerciseentities
+    [Migration("20240211165745_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.1");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "8.0.1")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -256,9 +261,6 @@ namespace WorkoutPartner.API.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("EquipmentId")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -271,9 +273,25 @@ namespace WorkoutPartner.API.Migrations
 
                     b.HasKey("Id");
 
+                    b.ToTable("Exercise");
+                });
+
+            modelBuilder.Entity("WorkoutPartner.Domain.Database.Models.ExerciseEquipment", b =>
+                {
+                    b.Property<Guid>("ExerciseId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("EquipmentId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ExerciseId", "EquipmentId");
+
                     b.HasIndex("EquipmentId");
 
-                    b.ToTable("Exercise");
+                    b.ToTable("ExerciseEquipment");
                 });
 
             modelBuilder.Entity("WorkoutPartner.Domain.Database.Models.ExerciseRecord", b =>
@@ -481,13 +499,23 @@ namespace WorkoutPartner.API.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WorkoutPartner.Domain.Database.Models.Exercise", b =>
+            modelBuilder.Entity("WorkoutPartner.Domain.Database.Models.ExerciseEquipment", b =>
                 {
                     b.HasOne("WorkoutPartner.Domain.Database.Models.Equipment", "Equipment")
-                        .WithMany("Exercises")
-                        .HasForeignKey("EquipmentId");
+                        .WithMany("ExerciseEquipments")
+                        .HasForeignKey("EquipmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WorkoutPartner.Domain.Database.Models.Exercise", "Exercise")
+                        .WithMany("ExerciseEquipments")
+                        .HasForeignKey("ExerciseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Equipment");
+
+                    b.Navigation("Exercise");
                 });
 
             modelBuilder.Entity("WorkoutPartner.Domain.Database.Models.ExerciseRecord", b =>
@@ -591,11 +619,13 @@ namespace WorkoutPartner.API.Migrations
 
             modelBuilder.Entity("WorkoutPartner.Domain.Database.Models.Equipment", b =>
                 {
-                    b.Navigation("Exercises");
+                    b.Navigation("ExerciseEquipments");
                 });
 
             modelBuilder.Entity("WorkoutPartner.Domain.Database.Models.Exercise", b =>
                 {
+                    b.Navigation("ExerciseEquipments");
+
                     b.Navigation("ExerciseSchemas");
                 });
 

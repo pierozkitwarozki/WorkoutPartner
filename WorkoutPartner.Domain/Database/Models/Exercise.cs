@@ -20,9 +20,8 @@ public class Exercise : BaseEntity
     /// </summary>
     public required ExerciseType Type { get; set; }
     /// <summary>
-    /// Optional: Foreign key for equipment needed for exercise
+    /// Collection of equipment needed
     /// </summary>
-    public Guid? EquipmentId { get; set; }
-    public Equipment? Equipment { get; set; }
-    public ICollection<ExerciseSchema>? ExerciseSchemas { get; set; }
+    public virtual ICollection<ExerciseEquipment>? ExerciseEquipments { get; set; }
+    public virtual ICollection<ExerciseSchema>? ExerciseSchemas { get; set; }
 }

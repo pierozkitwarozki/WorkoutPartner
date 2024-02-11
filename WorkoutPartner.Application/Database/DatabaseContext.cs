@@ -9,57 +9,71 @@ public class DatabaseContext(DbContextOptions<DatabaseContext> options) : Identi
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        builder.Entity<Equipment>()
-            .HasKey(e => e.Id);
 
-        builder.Entity<Exercise>()
+        builder.Entity<ExerciseEquipment>()
             .HasOne(e => e.Equipment)
-            .WithMany(e => e.Exercises)
-            .HasForeignKey(e => e.EquipmentId);
+            .WithMany(e => e.ExerciseEquipments)
+            .HasForeignKey(e => e.EquipmentId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<ExerciseEquipment>()
+            .HasOne(e => e.Exercise)
+            .WithMany(e => e.ExerciseEquipments)
+            .HasForeignKey(e => e.ExerciseId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<ExerciseSchema>()
             .HasOne(e => e.User)
             .WithMany(e => e.ExerciseSchemas)
-            .HasForeignKey(e => e.UserId);
+            .HasForeignKey(e => e.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<ExerciseSchema>()
             .HasOne(e => e.Exercise)
             .WithMany(e => e.ExerciseSchemas)
-            .HasForeignKey(e => e.ExerciseId);
+            .HasForeignKey(e => e.ExerciseId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<ExerciseRecord>()
             .HasOne(e => e.ExerciseSchema)
             .WithMany(e => e.ExerciseRecords)
-            .HasForeignKey(e => e.ExerciseSchemaId);
+            .HasForeignKey(e => e.ExerciseSchemaId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<ExerciseRecordWorkoutRecord>()
             .HasOne(e => e.ExerciseRecord)
             .WithMany(e => e.ExerciseRecordWorkoutRecords)
-            .HasForeignKey(e => e.ExerciseRecordId);
+            .HasForeignKey(e => e.ExerciseRecordId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<ExerciseRecordWorkoutRecord>()
             .HasOne(e => e.WorkoutRecord)
             .WithMany(e => e.ExerciseRecordWorkoutRecords)
-            .HasForeignKey(e => e.WorkoutRecordId);
+            .HasForeignKey(e => e.WorkoutRecordId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<ExerciseSchemaWorkoutPlanSchema>()
             .HasOne(e => e.ExerciseSchema)
             .WithMany(e => e.ExerciseSchemaWorkoutPlanSchemas)
-            .HasForeignKey(e => e.ExerciseSchemaId);
+            .HasForeignKey(e => e.ExerciseSchemaId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<ExerciseSchemaWorkoutPlanSchema>() 
             .HasOne(e => e.WorkoutPlanSchema)
             .WithMany(e => e.ExerciseSchemaWorkoutPlanSchemas)
-            .HasForeignKey(e => e.WorkoutPlanSchemaId);
+            .HasForeignKey(e => e.WorkoutPlanSchemaId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<WorkoutPlanSchema>()
             .HasOne(e => e.User)
             .WithMany(e => e.WorkoutPlanSchemas)
-            .HasForeignKey(e => e.UserId);
+            .HasForeignKey(e => e.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
         
         builder.Entity<WorkoutRecord>()
             .HasOne(e => e.User)
             .WithMany(e => e.WorkoutRecords)
-            .HasForeignKey(e => e.UserId);
+            .HasForeignKey(e => e.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

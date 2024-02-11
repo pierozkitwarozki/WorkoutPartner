@@ -9,5 +9,8 @@ public class Equipment : BaseEntity
     /// Equipment Name
     /// </summary>
     public required string Name { get; set; }
-    public ICollection<Exercise>? Exercises { get; set; }
+    /// <summary>
+    /// Collection of equipment needed
+    /// </summary>
+    public virtual ICollection<ExerciseEquipment>? ExerciseEquipments { get; set; }
 }

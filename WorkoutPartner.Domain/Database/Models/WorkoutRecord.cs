@@ -12,10 +12,10 @@ public class WorkoutRecord : BaseEntity
     /// <summary>
     /// User that created a plan
     /// </summary>
-    public ApplicationUser? User { get; set; }
+    public virtual ApplicationUser? User { get; set; }
     /// <summary>
     /// Name of the workout plan
     /// </summary>
     public required string Name { get; set; }
-    public ICollection<ExerciseRecordWorkoutRecord>? ExerciseRecordWorkoutRecords { get; set; }
+    public virtual ICollection<ExerciseRecordWorkoutRecord>? ExerciseRecordWorkoutRecords { get; set; }
 }

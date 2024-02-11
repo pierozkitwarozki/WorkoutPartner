@@ -12,10 +12,10 @@ public class WorkoutPlanSchema : BaseEntity
     /// <summary>
     /// User that created a plan
     /// </summary>
-    public ApplicationUser? User { get; set; }
+    public virtual ApplicationUser? User { get; set; }
     /// <summary>
     /// Name of the workout plan
     /// </summary>
     public required string Name { get; set; }
-    public ICollection<ExerciseSchemaWorkoutPlanSchema>? ExerciseSchemaWorkoutPlanSchemas { get; set; }
+    public virtual ICollection<ExerciseSchemaWorkoutPlanSchema>? ExerciseSchemaWorkoutPlanSchemas { get; set; }
 }

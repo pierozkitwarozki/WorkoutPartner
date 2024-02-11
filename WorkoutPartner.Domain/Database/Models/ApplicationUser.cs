@@ -9,7 +9,7 @@ public class ApplicationUser : IdentityUser
     public int? Height { get; set; } 
     public WeightUnit? WeightUnit { get; set; }
     public SexType? Sex { get; set; }
-    public ICollection<ExerciseSchema>? ExerciseSchemas { get; set; }
-    public ICollection<WorkoutPlanSchema>? WorkoutPlanSchemas { get; set; }
-    public ICollection<WorkoutRecord>? WorkoutRecords { get; set; }
+    public virtual ICollection<ExerciseSchema>? ExerciseSchemas { get; set; }
+    public virtual ICollection<WorkoutPlanSchema>? WorkoutPlanSchemas { get; set; }
+    public virtual ICollection<WorkoutRecord>? WorkoutRecords { get; set; }
 }

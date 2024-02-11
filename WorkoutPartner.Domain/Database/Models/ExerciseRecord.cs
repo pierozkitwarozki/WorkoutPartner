@@ -12,10 +12,10 @@ public class ExerciseRecord : BaseEntity
     /// <summary>
     /// Exercise schema used in record
     /// </summary>
-    public ExerciseSchema? ExerciseSchema { get; set; }
+    public virtual ExerciseSchema? ExerciseSchema { get; set; }
     /// <summary>
     /// Schema with actual filled values on training
     /// </summary>
     public required string FilledSchema { get; set; }
-    public ICollection<ExerciseRecordWorkoutRecord>? ExerciseRecordWorkoutRecords { get; set; }
+    public virtual ICollection<ExerciseRecordWorkoutRecord>? ExerciseRecordWorkoutRecords { get; set; }
 }

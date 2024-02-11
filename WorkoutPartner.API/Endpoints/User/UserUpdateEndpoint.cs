@@ -1,27 +1,27 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using WorkoutPartner.Application.Commands;
-using WorkoutPartner.Domain.DTO.UpdateUser;
+using WorkoutPartner.Domain.DTO.UserUpdate;
 using WorkoutPartner.Domain.ResultType.Errors;
 using WorkoutPartner.Infrastructure.Routes;
 
 namespace WorkoutPartner.API.Endpoints.User;
 
-public class UpdateUserEndpoint : IEndpointBase
+public class UserUpdateEndpoint : IEndpointBase
 {
     public string Group => RouteGroupNames.User;
     public string Route => RouteNames.Update;
     public RouteHandlerBuilder MapEndpoint(RouteGroupBuilder builder)
     {
         return builder.MapPut(Route, async (
-            [FromBody] UpdateUserRequest payload,
+            [FromBody] UserUpdateRequest payload,
             HttpContext context,
             [FromServices] IMediator mediator) =>
         {
-            var command = new UpdateUserCommand
+            var command = new UserUpdateCommand
             {
                 Principal = context.User,
-                Data = payload
+                Request = payload
             };
 
             var result = await mediator.Send(command);
@@ -31,9 +31,9 @@ public class UpdateUserEndpoint : IEndpointBase
                 { IsFailure: true, Error.Type: nameof(NotFoundError) } => Results.NotFound(result.Error.Description),
                 { IsFailure: true, Error.Type: nameof(ValidationError) } => Results.UnprocessableEntity(result.Error
                     .Description),
-                _ => result.IsFailure ? Results.BadRequest() : TypedResults.Ok()
+                _ => result.IsFailure ? Results.BadRequest() : TypedResults.Ok(result)
             };
-        });
-        //.RequireAuthorization();
+        })
+        .RequireAuthorization();
     }
 }

@@ -13,13 +13,13 @@ public class ExerciseSchemaWorkoutPlanSchema
     /// Foreign key for exercise schema
     /// </summary>
     public required Guid ExerciseSchemaId { get; set; }
-    public ExerciseSchema? ExerciseSchema { get; set; }
+    public virtual ExerciseSchema? ExerciseSchema { get; set; }
     
     /// <summary>
     /// Foreign key for workout plan schema
     /// </summary>
     public required Guid WorkoutPlanSchemaId { get; set; }
-    public WorkoutPlanSchema? WorkoutPlanSchema { get; set; }
+    public virtual WorkoutPlanSchema? WorkoutPlanSchema { get; set; }
     
     /// <summary>
     /// Exercise order in workout plan
