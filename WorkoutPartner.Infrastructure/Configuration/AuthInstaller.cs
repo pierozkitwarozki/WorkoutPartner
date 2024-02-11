@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
+using WorkoutPartner.Application.Database;
 using WorkoutPartner.Domain.Database.Models;
-using WorkoutPartner.Infrastructure.Database;
 
 namespace WorkoutPartner.Infrastructure.Configuration;
 

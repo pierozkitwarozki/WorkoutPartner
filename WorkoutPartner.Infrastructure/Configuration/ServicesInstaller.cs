@@ -20,6 +20,7 @@ public static class ServicesInstaller
     {
         return serviceCollection
             .InstallDatabase(configuration, environment)
+            .InstallRepositories()
             .InstallAuth()
             .InstallValidators()
             .InstallMediator();

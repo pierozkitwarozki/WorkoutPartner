@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace WorkoutPartner.Infrastructure.Configuration;
 
-public static class ValidatorsInstaller
+internal static class ValidatorsInstaller
 {
-    public static IServiceCollection InstallValidators(this IServiceCollection services)
+    internal static IServiceCollection InstallValidators(this IServiceCollection services)
     {
         return services.AddValidatorsFromAssemblyContaining<MediatorEntryPoint>();
     }

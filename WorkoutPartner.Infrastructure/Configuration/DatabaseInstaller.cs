@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WorkoutPartner.Infrastructure.Database;
+using WorkoutPartner.Application.Database;
 using Environment = WorkoutPartner.Domain.Configuration.Environment;
 
 namespace WorkoutPartner.Infrastructure.Configuration;

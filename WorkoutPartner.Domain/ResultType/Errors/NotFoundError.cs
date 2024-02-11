@@ -6,5 +6,8 @@ public class NotFoundError : ResultError
     : base(type, description) { }
 
     public static ResultError New(string entity)
-        => new NotFoundError(nameof(NotFoundError), $"{entity} not found.");
+        => new NotFoundError(
+            nameof(NotFoundError), 
+            $"{entity} not found."
+            );
 }

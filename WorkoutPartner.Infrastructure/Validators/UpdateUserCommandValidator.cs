@@ -11,12 +11,16 @@ public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>
             .NotNull();
 
         RuleFor(x => x.Data.Height)
-            .GreaterThanOrEqualTo(50)
-            .LessThanOrEqualTo(300);
+            .GreaterThanOrEqualTo(30)
+            .LessThanOrEqualTo(350);
 
         RuleFor(x => x.Data.Weight)
             .GreaterThanOrEqualTo(20)
             .LessThanOrEqualTo(1000);
+
+        RuleFor(x => x.Data.UserName)
+            .MinimumLength(1)
+            .MaximumLength(30);
 
         RuleFor(x => x.Principal)
             .NotNull();
