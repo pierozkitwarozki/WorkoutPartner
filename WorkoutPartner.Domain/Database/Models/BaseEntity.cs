@@ -14,7 +14,7 @@ public abstract class BaseEntity
     /// </summary>
     public string? Description { get; set; }
     /// <summary>
-    /// Created dateTimeOffset
+    /// Created DateTime
     /// </summary>
-    public required DateTimeOffset CreatedAt { get; init; }
+    public required DateTime CreatedAt { get; init; }
 }

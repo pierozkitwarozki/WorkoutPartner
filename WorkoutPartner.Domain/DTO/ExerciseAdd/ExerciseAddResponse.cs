@@ -6,7 +6,7 @@ public record ExerciseAddResponse(
     Guid Id,
     string Name,
     string? Description,
-    DateTimeOffset CreatedAt,
+    DateTime CreatedAt,
     ExerciseType Type,
     string? Url,
     IDictionary<Guid, string>? Equipment

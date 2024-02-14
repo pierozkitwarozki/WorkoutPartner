@@ -1,12 +1,11 @@
 using FluentValidation;
 using WorkoutPartner.Application.Commands;
-using WorkoutPartner.Domain.Database.Enums;
 
 namespace WorkoutPartner.Infrastructure.Validators;
 
-public class ExerciseAddValidator : AbstractValidator<ExerciseAddCommand>
+public class ExerciseAddCommandValidator : AbstractValidator<ExerciseAddCommand>
 {
-    public ExerciseAddValidator()
+    public ExerciseAddCommandValidator()
     {
         RuleFor(x => x.Request)
             .NotNull();

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Query;
 using WorkoutPartner.Application.Database;
 using WorkoutPartner.Application.Repositories.Interfaces;
 using WorkoutPartner.Domain.Database.Models;
+using WorkoutPartner.Domain.DTO.Paging;
 
 namespace WorkoutPartner.Application.Repositories.Implementations;
 
@@ -60,6 +61,20 @@ public abstract class RepositoryBase<TEntity>(DatabaseContext databaseContext)
         }
         
         DbSet.UpdateRange(baseEntities);
+    }
+
+    /// <inheritdoc/>
+    public (IQueryable<TEntity>, bool) WherePaged(PageRequest pageRequest, Expression<Func<TEntity, bool>> predicate)
+    {
+        var queryable = DbSet
+            .Where(predicate)
+            .OrderBy(x => x.CreatedAt)
+            .Skip((pageRequest.PageNumber - 1) * pageRequest.PageSize)
+            .Take(pageRequest.PageSize);
+
+        var moreExists = queryable.Count() >= pageRequest.PageSize;
+
+        return (queryable, moreExists);
     }
 
     /// <inheritdoc/>

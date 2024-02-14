@@ -6,6 +6,7 @@ using WorkoutPartner.Application.Services.Interfaces;
 using WorkoutPartner.Domain.Database.Models;
 using WorkoutPartner.Domain.DTO.ExerciseAdd;
 using WorkoutPartner.Domain.ResultType;
+using WorkoutPartner.Infrastructure.Mappers;
 
 namespace WorkoutPartner.Infrastructure.Handlers;
 
@@ -18,7 +19,7 @@ public class ExerciseAddCommandHandler(
 {
     public async Task<Result<ExerciseAddResponse>> Handle(ExerciseAddCommand request, CancellationToken cancellationToken)
     {
-        var entity = MapToEntity(request.Request);
+        var entity = ExerciseMapper.MapFromExerciseAddRequestToExerciseEntity(request.Request, dateTimeService.Now());
 
         await exerciseRepository.AddAsync(entity);
 
@@ -26,7 +27,7 @@ public class ExerciseAddCommandHandler(
         
         await exerciseRepository.SaveChangesAsync();
 
-        var response = MapToResponse(entity);
+        var response = ExerciseMapper.MapFromExerciseToExerciseAddResponse(entity);
 
         return Result<ExerciseAddResponse>.Success(response);
     }
@@ -50,40 +51,5 @@ public class ExerciseAddCommandHandler(
                 });
             }
         }
-    }
-
-    private Exercise MapToEntity(ExerciseAddRequest request)
-    {
-        return new Exercise
-        {
-            Id = Guid.NewGuid(),
-            Description = request.Description,
-            CreatedAt = dateTimeService.Now(),
-            Name = request.Name,
-            Type = request.Type,
-            Url = request.Url
-        };
-    }
-
-    private ExerciseAddResponse MapToResponse(Exercise exercise)
-    {
-        var equipment = exercise.ExerciseEquipments?
-            .Select(e 
-                => new KeyValuePair<Guid, string>(
-                    e.EquipmentId, 
-                    e.Equipment?.Name ?? string.Empty
-                    ))
-            .ToDictionary();
-        
-        return new ExerciseAddResponse(
-            exercise.Id,
-            exercise.Name,
-            exercise.Description,
-            exercise.CreatedAt,
-            exercise.Type,
-            exercise.Url, 
-            equipment
-        );
-
     }
 }

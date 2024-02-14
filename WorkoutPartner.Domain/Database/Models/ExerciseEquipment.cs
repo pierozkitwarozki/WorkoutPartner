@@ -19,5 +19,5 @@ public class ExerciseEquipment
     /// </summary>
     public Guid EquipmentId { get; set; }
     public virtual Equipment? Equipment { get; set; }
-    public DateTimeOffset CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; }
 }

@@ -61,7 +61,7 @@ namespace WorkoutPartner.API.Migrations
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -77,7 +77,7 @@ namespace WorkoutPartner.API.Migrations
                     Url = table.Column<string>(type: "TEXT", nullable: true),
                     Type = table.Column<int>(type: "INTEGER", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -198,7 +198,7 @@ namespace WorkoutPartner.API.Migrations
                     UserId = table.Column<string>(type: "TEXT", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -219,7 +219,7 @@ namespace WorkoutPartner.API.Migrations
                     UserId = table.Column<string>(type: "TEXT", nullable: false),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -238,7 +238,7 @@ namespace WorkoutPartner.API.Migrations
                 {
                     ExerciseId = table.Column<Guid>(type: "TEXT", nullable: false),
                     EquipmentId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -266,7 +266,7 @@ namespace WorkoutPartner.API.Migrations
                     Schema = table.Column<string>(type: "TEXT", nullable: false),
                     ExerciseId = table.Column<Guid>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -293,7 +293,7 @@ namespace WorkoutPartner.API.Migrations
                     ExerciseSchemaId = table.Column<Guid>(type: "TEXT", nullable: false),
                     FilledSchema = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -313,7 +313,7 @@ namespace WorkoutPartner.API.Migrations
                     ExerciseSchemaId = table.Column<Guid>(type: "TEXT", nullable: false),
                     WorkoutPlanSchemaId = table.Column<Guid>(type: "TEXT", nullable: false),
                     ExerciseOrder = table.Column<int>(type: "INTEGER", nullable: false),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -339,7 +339,7 @@ namespace WorkoutPartner.API.Migrations
                     ExerciseRecordId = table.Column<Guid>(type: "TEXT", nullable: false),
                     WorkoutRecordId = table.Column<Guid>(type: "TEXT", nullable: false),
                     ExerciseOrder = table.Column<int>(type: "INTEGER", nullable: false),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "TEXT", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

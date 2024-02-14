@@ -1,6 +1,7 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore.Query;
 using WorkoutPartner.Domain.Database.Models;
+using WorkoutPartner.Domain.DTO.Paging;
 
 namespace WorkoutPartner.Application.Repositories.Interfaces;
 
@@ -14,6 +15,20 @@ public interface IRepositoryBase<TEntity> where TEntity : BaseEntity
     Task AddAsync(TEntity entity);
     Task AddRangeAsync(IEnumerable<TEntity> entities);
     Task<bool> SaveChangesAsync();
+
+    /// <summary>
+    /// Get paged result, by given search predicate
+    /// </summary>
+    /// <param name="pageRequest">Page size and number</param>
+    /// <param name="predicate">Search predicate</param>
+    /// <returns>
+    /// Tuple:
+    /// Value1 - IQueryable with entities,
+    /// Value2 - boolean value if there are more elements
+    /// </returns>
+    (IQueryable<TEntity>, bool) WherePaged(
+        PageRequest pageRequest,
+        Expression<Func<TEntity, bool>> predicate);
 
     /// <summary>
     /// Executes updates on entities given by predicate

@@ -25,5 +25,5 @@ public class ExerciseSchemaWorkoutPlanSchema
     /// Exercise order in workout plan
     /// </summary>
     public required int ExerciseOrder { get; set; }
-    public required DateTimeOffset CreatedAt { get; set; }
+    public required DateTime CreatedAt { get; set; }
 }

@@ -29,7 +29,7 @@ public class ExerciseAddEndpoint : IEndpointBase
                 {
                     { IsFailure: true, Error.Type: nameof(ValidationError) } => Results.UnprocessableEntity(result.Error
                         .Description),
-                    _ => result.IsFailure ? Results.BadRequest() : TypedResults.Ok(result)
+                    _ => result.IsFailure ? Results.BadRequest() : TypedResults.Ok(result.Value)
                 };
             })
             .RequireAuthorization();
