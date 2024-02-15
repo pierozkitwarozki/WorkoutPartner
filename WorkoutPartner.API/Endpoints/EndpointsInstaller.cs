@@ -1,7 +1,7 @@
 using System.Collections.Immutable;
 using System.Reflection;
 using WorkoutPartner.Domain.Database.Models;
-using WorkoutPartner.Infrastructure.Routes;
+using WorkoutPartner.Domain.Routes;
 
 namespace WorkoutPartner.API.Endpoints;
 

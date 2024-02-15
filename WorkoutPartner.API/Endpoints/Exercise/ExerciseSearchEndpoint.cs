@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Domain.DTO.ExerciseSearch;
 using WorkoutPartner.Domain.ResultType.Errors;
-using WorkoutPartner.Infrastructure.Routes;
+using WorkoutPartner.Domain.Routes;
 
 namespace WorkoutPartner.API.Endpoints.Exercise;
 

@@ -1,4 +1,4 @@
-namespace WorkoutPartner.Infrastructure.Routes;
+namespace WorkoutPartner.Domain.Routes;
 
 public static class RouteNames
 {

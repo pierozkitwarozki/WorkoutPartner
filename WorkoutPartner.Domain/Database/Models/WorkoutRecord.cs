@@ -17,5 +17,13 @@ public class WorkoutRecord : BaseEntity
     /// Name of the workout plan
     /// </summary>
     public required string Name { get; set; }
+    /// <summary>
+    /// Workout start
+    /// </summary>
+    public required DateTime StartDateTime { get; set; }
+    /// <summary>
+    /// Workout end
+    /// </summary>
+    public required DateTime EndDateTime { get; set; }
     public virtual ICollection<ExerciseRecordWorkoutRecord>? ExerciseRecordWorkoutRecords { get; set; }
 }

@@ -12,4 +12,6 @@ public class ApplicationUser : IdentityUser
     public virtual ICollection<ExerciseSchema>? ExerciseSchemas { get; set; }
     public virtual ICollection<WorkoutPlanSchema>? WorkoutPlanSchemas { get; set; }
     public virtual ICollection<WorkoutRecord>? WorkoutRecords { get; set; }
+    public virtual ICollection<Exercise>? Exercises { get; set; }
+    public virtual ICollection<Equipment>? Equipments { get; set; }
 }

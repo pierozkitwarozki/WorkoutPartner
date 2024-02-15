@@ -13,5 +13,9 @@ public class EquipmentAddCommandValidator : AbstractValidator<EquipmentAddComman
 
         RuleFor(x => x.Request.Description)
             .MaximumLength(1000);
+        
+        RuleFor(x => x.UserId)
+            .NotNull()
+            .NotEmpty();
     }
 }

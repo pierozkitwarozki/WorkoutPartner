@@ -1,9 +1,11 @@
+using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using WorkoutPartner.Application.Commands;
+using WorkoutPartner.Application.Extensions;
 using WorkoutPartner.Domain.DTO.EquipmentAdd;
 using WorkoutPartner.Domain.ResultType.Errors;
-using WorkoutPartner.Infrastructure.Routes;
+using WorkoutPartner.Domain.Routes;
 
 namespace WorkoutPartner.API.Endpoints.Equipment;
 
@@ -16,10 +18,12 @@ public class ExerciseAddEndpoint : IEndpointBase
         return builder.MapPost(Route,
             async (
                 [FromBody] EquipmentAddRequest payload,
+                ClaimsPrincipal user,
                 [FromServices] IMediator mediator) =>
             {
                 var command = new EquipmentAddCommand()
                 {
+                    UserId = user.GetUserNameIdentifier(),
                     Request = payload
                 };
 

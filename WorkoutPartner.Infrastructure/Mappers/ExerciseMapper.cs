@@ -5,7 +5,7 @@ namespace WorkoutPartner.Infrastructure.Mappers;
 
 public static class ExerciseMapper
 {
-    public static Exercise MapFromExerciseAddRequestToExerciseEntity(ExerciseAddRequest request, DateTime createdAt)
+    public static Exercise MapFromExerciseAddRequestToExerciseEntity(ExerciseAddRequest request, DateTime createdAt, string ownerId)
     {
         return new Exercise
         {
@@ -14,7 +14,9 @@ public static class ExerciseMapper
             CreatedAt = createdAt,
             Name = request.Name,
             Type = request.Type,
-            Url = request.Url
+            VideoUrl = request.VideoUrl,
+            ImageUrl = request.ImageUrl,
+            OwnerId = ownerId
         };
     }
 
@@ -34,7 +36,9 @@ public static class ExerciseMapper
             exercise.Description,
             exercise.CreatedAt,
             exercise.Type,
-            exercise.Url, 
+            exercise.VideoUrl, 
+            exercise.ImageUrl,
+            exercise.OwnerId,
             equipment
         );
 

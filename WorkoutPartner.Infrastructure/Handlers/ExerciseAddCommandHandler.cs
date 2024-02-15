@@ -19,7 +19,10 @@ public class ExerciseAddCommandHandler(
 {
     public async Task<Result<ExerciseAddResponse>> Handle(ExerciseAddCommand request, CancellationToken cancellationToken)
     {
-        var entity = ExerciseMapper.MapFromExerciseAddRequestToExerciseEntity(request.Request, dateTimeService.Now());
+        var entity = ExerciseMapper.MapFromExerciseAddRequestToExerciseEntity(
+            request.Request, 
+            dateTimeService.Now(),
+            request.UserId!);
 
         await exerciseRepository.AddAsync(entity);
 

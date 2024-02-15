@@ -8,20 +8,26 @@ namespace WorkoutPartner.Domain.Database.Models;
 public class Exercise : BaseEntity
 {
     /// <summary>
+    /// Foreign key for user that created entity
+    /// </summary>
+    public string OwnerId { get; set; }
+    /// <summary>
     /// Exercise name
     /// </summary>
     public required string Name { get; set; }
     /// <summary>
-    /// Optional: ExerciseUrl, eg. YouTube video or something
+    /// Optional: VideoUrl, eg. YouTube video or something
     /// </summary>
-    public string? Url { get; set; }
+    public string? VideoUrl { get; set; }
+    /// <summary>
+    /// Optional: Url with additional images
+    /// </summary>
+    public string? ImageUrl { get; set; }
     /// <summary>
     /// One of exercise types
     /// </summary>
     public required ExerciseType Type { get; set; }
-    /// <summary>
-    /// Collection of equipment needed
-    /// </summary>
     public virtual ICollection<ExerciseEquipment>? ExerciseEquipments { get; set; }
     public virtual ICollection<ExerciseSchema>? ExerciseSchemas { get; set; }
+    public virtual ApplicationUser Owner { get; set; }
 }

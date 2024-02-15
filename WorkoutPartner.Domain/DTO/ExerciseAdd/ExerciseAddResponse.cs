@@ -8,6 +8,8 @@ public record ExerciseAddResponse(
     string? Description,
     DateTime CreatedAt,
     ExerciseType Type,
-    string? Url,
+    string? VideoUrl,
+    string? ImageUrl,
+    string OwnerId,
     IDictionary<Guid, string>? Equipment
     );

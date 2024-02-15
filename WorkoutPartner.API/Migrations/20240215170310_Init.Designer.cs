@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WorkoutPartner.Application.Database;
 
@@ -10,9 +11,11 @@ using WorkoutPartner.Application.Database;
 namespace WorkoutPartner.API.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240215170310_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -241,13 +244,7 @@ namespace WorkoutPartner.API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("OwnerId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("OwnerId");
 
                     b.ToTable("Equipment");
                 });
@@ -445,14 +442,8 @@ namespace WorkoutPartner.API.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("EndDateTime")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("StartDateTime")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UserId")
@@ -515,17 +506,6 @@ namespace WorkoutPartner.API.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("WorkoutPartner.Domain.Database.Models.Equipment", b =>
-                {
-                    b.HasOne("WorkoutPartner.Domain.Database.Models.ApplicationUser", "Owner")
-                        .WithMany("Equipments")
-                        .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("WorkoutPartner.Domain.Database.Models.Exercise", b =>
@@ -650,8 +630,6 @@ namespace WorkoutPartner.API.Migrations
 
             modelBuilder.Entity("WorkoutPartner.Domain.Database.Models.ApplicationUser", b =>
                 {
-                    b.Navigation("Equipments");
-
                     b.Navigation("ExerciseSchemas");
 
                     b.Navigation("Exercises");

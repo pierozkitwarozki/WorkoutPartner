@@ -1,9 +1,10 @@
+using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Domain.DTO.UserUpdate;
 using WorkoutPartner.Domain.ResultType.Errors;
-using WorkoutPartner.Infrastructure.Routes;
+using WorkoutPartner.Domain.Routes;
 
 namespace WorkoutPartner.API.Endpoints.User;
 
@@ -15,12 +16,12 @@ public class UserUpdateEndpoint : IEndpointBase
     {
         return builder.MapPut(Route, async (
             [FromBody] UserUpdateRequest payload,
-            HttpContext context,
+            ClaimsPrincipal user,
             [FromServices] IMediator mediator) =>
         {
             var command = new UserUpdateCommand
             {
-                Principal = context.User,
+                Principal = user,
                 Request = payload
             };
 

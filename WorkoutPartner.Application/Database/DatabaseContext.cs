@@ -10,6 +10,18 @@ public class DatabaseContext(DbContextOptions<DatabaseContext> options) : Identi
     {
         base.OnModelCreating(builder);
 
+        builder.Entity<Exercise>()
+            .HasOne(e => e.Owner)
+            .WithMany(e => e.Exercises)
+            .HasForeignKey(e => e.OwnerId)
+            .OnDelete(DeleteBehavior.Cascade);
+        
+        builder.Entity<Equipment>()
+            .HasOne(e => e.Owner)
+            .WithMany(e => e.Equipments)
+            .HasForeignKey(e => e.OwnerId)
+            .OnDelete(DeleteBehavior.Cascade);
+
         builder.Entity<ExerciseEquipment>()
             .HasOne(e => e.Equipment)
             .WithMany(e => e.ExerciseEquipments)

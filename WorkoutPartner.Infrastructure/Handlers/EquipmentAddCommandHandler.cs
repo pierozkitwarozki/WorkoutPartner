@@ -5,6 +5,7 @@ using WorkoutPartner.Application.Services.Interfaces;
 using WorkoutPartner.Domain.Database.Models;
 using WorkoutPartner.Domain.DTO.EquipmentAdd;
 using WorkoutPartner.Domain.ResultType;
+using WorkoutPartner.Infrastructure.Mappers;
 
 namespace WorkoutPartner.Infrastructure.Handlers;
 
@@ -15,23 +16,15 @@ public class EquipmentAddCommandHandler(
 {
     public async Task<Result<EquipmentAddResponse>> Handle(EquipmentAddCommand request, CancellationToken cancellationToken)
     {
-        var entity = MapToEntity(request.Request);
+        var entity = EquipmentMapper.MapEquipmentAddRequestToEquipmentEntity(
+            request.Request,
+            dateTimeService.Now(),
+            request.UserId!);
         
         await equipmentRepository.AddAsync(entity);
         await equipmentRepository.SaveChangesAsync();
 
         return Result<EquipmentAddResponse>.Success(
             new EquipmentAddResponse(entity.Id, entity.Name, entity.Description));
-    }
-
-    private Equipment MapToEntity(EquipmentAddRequest request)
-    {
-        return new Equipment
-        {
-            Id = Guid.NewGuid(),
-            CreatedAt = dateTimeService.Now(),
-            Name = request.Name,
-            Description = request.Description
-        };
     }
 }
