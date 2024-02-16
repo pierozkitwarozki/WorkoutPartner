@@ -1,4 +1,4 @@
-namespace WorkoutPartner.API.Endpoints;
+namespace WorkoutPartner.API.Endpoints.Configuration;
 
 public interface IEndpointBase
 {

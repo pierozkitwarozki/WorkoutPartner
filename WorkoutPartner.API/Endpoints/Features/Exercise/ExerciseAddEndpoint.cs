@@ -1,30 +1,31 @@
 using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using WorkoutPartner.API.Endpoints.Configuration;
 using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Application.Extensions;
-using WorkoutPartner.Domain.DTO.EquipmentAdd;
+using WorkoutPartner.Domain.DTO.ExerciseAdd;
 using WorkoutPartner.Domain.ResultType.Errors;
 using WorkoutPartner.Domain.Routes;
 
-namespace WorkoutPartner.API.Endpoints.Equipment;
+namespace WorkoutPartner.API.Endpoints.Features.Exercise;
 
 public class ExerciseAddEndpoint : IEndpointBase
 {
-    public string Group => RouteGroupNames.Equipment;
+    public string Group => RouteGroupNames.Exercise;
     public string Route => RouteNames.Add;
     public RouteHandlerBuilder MapEndpoint(RouteGroupBuilder builder)
     {
         return builder.MapPost(Route,
             async (
-                [FromBody] EquipmentAddRequest payload,
+                [FromBody] ExerciseAddRequest payload,
                 ClaimsPrincipal user,
                 [FromServices] IMediator mediator) =>
             {
-                var command = new EquipmentAddCommand()
+                var command = new ExerciseAddCommand
                 {
-                    UserId = user.GetUserNameIdentifier(),
-                    Request = payload
+                    Request = payload,
+                    UserId = user.GetUserNameIdentifier()
                 };
 
                 var result = await mediator.Send(command);

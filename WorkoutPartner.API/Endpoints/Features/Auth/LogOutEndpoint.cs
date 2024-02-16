@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using WorkoutPartner.API.Endpoints.Configuration;
 using WorkoutPartner.Domain.Routes;
 
-namespace WorkoutPartner.API.Endpoints.Auth;
+namespace WorkoutPartner.API.Endpoints.Features.Auth;
 
 public class LogOutEndpoint : IEndpointBase
 {

@@ -1,4 +1,4 @@
-using WorkoutPartner.API.Endpoints;
+using WorkoutPartner.API.Endpoints.Configuration;
 using WorkoutPartner.Infrastructure.Configuration;
 using Environment = WorkoutPartner.Domain.Configuration.Environment;
 

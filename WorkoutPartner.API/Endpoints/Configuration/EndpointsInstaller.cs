@@ -3,7 +3,7 @@ using System.Reflection;
 using WorkoutPartner.Domain.Database.Models;
 using WorkoutPartner.Domain.Routes;
 
-namespace WorkoutPartner.API.Endpoints;
+namespace WorkoutPartner.API.Endpoints.Configuration;
 
 public static class EndpointsInstaller
 {
