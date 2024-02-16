@@ -19,6 +19,7 @@ public static class Installer
         Environment environment)
     {
         return serviceCollection
+            .InstallSwagger()
             .InstallDatabase(configuration, environment)
             .InstallRepositories()
             .InstallServices()
