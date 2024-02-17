@@ -1,4 +1,4 @@
-namespace WorkoutPartner.Test;
+namespace WorkoutPartner.Test.Converters;
 
 public class WeightWorkoutConverterTests
 {
