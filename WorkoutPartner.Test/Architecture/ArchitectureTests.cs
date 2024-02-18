@@ -12,7 +12,7 @@ public class ArchitectureTests
         // Arrange
 
         // Act
-        var result = Types.InAssembly(typeof(WeightWorkout).Assembly)
+        var result = Types.InAssembly(typeof(WeightWorkoutSet).Assembly)
             .ShouldNot()
             .HaveDependencyOnAny(
                 "WorkoutPartner.Application",

@@ -5,11 +5,11 @@ namespace WorkoutPartner.Infrastructure.Converters;
 
 public static class WeightWorkoutConverter
 {
-    public static IEnumerable<WeightWorkout> ConvertExercise(string mainSchema)
+    public static IEnumerable<WeightWorkoutSet> ConvertExerciseToSets(string mainSchema)
     {
         var schemas = mainSchema.Split(',');
         var setNumber = 1;
-        var exercises = new List<WeightWorkout>();
+        var exercises = new List<WeightWorkoutSet>();
         foreach (var schema in schemas)
         {
             var parsedWorkout = InnerConvertWeightSchema(schema, ref setNumber);
@@ -19,21 +19,21 @@ public static class WeightWorkoutConverter
         return exercises;
     }
 
-    private static IEnumerable<WeightWorkout> InnerConvertWeightSchema(string schema, ref int setNumber)
+    private static IEnumerable<WeightWorkoutSet> InnerConvertWeightSchema(string schema, ref int setNumber)
     {
         if (!IsFirstCharValid(schema))
         {
-            return Enumerable.Empty<WeightWorkout>();
+            return Enumerable.Empty<WeightWorkoutSet>();
         }
         
         var match = RegularExpressions.FreeWeightMachineWeightExerciseRegEx().Match(schema);
 
         if (!match.Success)
         {
-            return Enumerable.Empty<WeightWorkout>();
+            return Enumerable.Empty<WeightWorkoutSet>();
         }
 
-        var workouts = new List<WeightWorkout>();
+        var workouts = new List<WeightWorkoutSet>();
         
         var sets = string.IsNullOrWhiteSpace(match.Groups[2].Value)
             ? 1 : int.Parse(match.Groups[2].Value.Replace("x", ""));
@@ -43,7 +43,7 @@ public static class WeightWorkoutConverter
 
         for (var i=0; i < sets; i++)
         {
-            var workout = new WeightWorkout(setNumber, reps, weightPair?.Item1, weightPair?.Item2);
+            var workout = new WeightWorkoutSet(setNumber, reps, weightPair?.Item1, weightPair?.Item2);
             workouts.Add(workout);
             setNumber++;
         }

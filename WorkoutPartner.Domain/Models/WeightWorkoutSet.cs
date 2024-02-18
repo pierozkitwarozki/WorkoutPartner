@@ -3,8 +3,8 @@ namespace WorkoutPartner.Domain.Models;
 /// <summary>
 /// Records that represent a free-weight/machine-weight workout
 /// </summary>
-/// <param name="Sets">Number of sets (if not specified - 1)</param>
+/// <param name="SetNumber">Set order</param>
 /// <param name="Reps">Number of reps</param>
 /// <param name="Weight">Optional: weight</param>
 /// <param name="Unit">Optional: unit</param>
-public record WeightWorkout(int SetNumber, string Reps, int? Weight, string? Unit);
+public record WeightWorkoutSet(int SetNumber, string Reps, int? Weight, string? Unit);

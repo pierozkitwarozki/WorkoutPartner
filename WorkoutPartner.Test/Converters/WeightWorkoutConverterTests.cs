@@ -14,7 +14,7 @@ public class WeightWorkoutConverterTests
         
         // Act
         var response = 
-            WeightWorkoutConverter.ConvertExercise(schema)
+            WeightWorkoutConverter.ConvertExerciseToSets(schema)
                 .ToImmutableArray();
 
         // Assert
@@ -44,7 +44,7 @@ public class WeightWorkoutConverterTests
         
         // Act
         var response = 
-            WeightWorkoutConverter.ConvertExercise(schema)
+            WeightWorkoutConverter.ConvertExerciseToSets(schema)
                 .ToImmutableArray();
 
         // Assert
@@ -75,7 +75,7 @@ public class WeightWorkoutConverterTests
 
         // Act
         var response = 
-            WeightWorkoutConverter.ConvertExercise(schema)
+            WeightWorkoutConverter.ConvertExerciseToSets(schema)
                 .ToImmutableArray();
 
         // Assert
@@ -103,7 +103,7 @@ public class WeightWorkoutConverterTests
 
         // Act
         var response = 
-            WeightWorkoutConverter.ConvertExercise(schema)
+            WeightWorkoutConverter.ConvertExerciseToSets(schema)
                 .ToImmutableArray();
 
         // Assert
@@ -127,19 +127,19 @@ public class WeightWorkoutConverterTests
     {
         // Arrange
         const string schema = "1x10#40kg,2x10#50kg,8#90kg,10,M#100lbs";
-        WeightWorkout[] expectedWorkouts =
+        WeightWorkoutSet[] expectedWorkouts =
         [
-            new WeightWorkout(1, "10", 40, "kg"),
-            new WeightWorkout(2, "10", 50, "kg"),
-            new WeightWorkout(3, "10", 50, "kg"),
-            new WeightWorkout(4, "8", 90, "kg"),
-            new WeightWorkout(5, "10", null, null),
-            new WeightWorkout(6, "M", 100, "lbs"),
+            new WeightWorkoutSet(1, "10", 40, "kg"),
+            new WeightWorkoutSet(2, "10", 50, "kg"),
+            new WeightWorkoutSet(3, "10", 50, "kg"),
+            new WeightWorkoutSet(4, "8", 90, "kg"),
+            new WeightWorkoutSet(5, "10", null, null),
+            new WeightWorkoutSet(6, "M", 100, "lbs"),
         ];
         
         // Act
         var response = 
-            WeightWorkoutConverter.ConvertExercise(schema)
+            WeightWorkoutConverter.ConvertExerciseToSets(schema)
                 .ToImmutableArray();
 
         // Assert
@@ -170,7 +170,7 @@ public class WeightWorkoutConverterTests
 
         // Act
         var response = 
-            WeightWorkoutConverter.ConvertExercise(schema)
+            WeightWorkoutConverter.ConvertExerciseToSets(schema)
                 .ToImmutableArray();
 
         // Assert

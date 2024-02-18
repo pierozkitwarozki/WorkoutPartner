@@ -19,8 +19,4 @@
     <ProjectReference Include="..\WorkoutPartner.Infrastructure\WorkoutPartner.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Endpoints\Features\" />
-  </ItemGroup>
-
 </Project>

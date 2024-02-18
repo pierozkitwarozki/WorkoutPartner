@@ -14,4 +14,9 @@ public class ValidationError(string type, string description) : ResultError(type
             sb.ToString()
             );
     }
+    
+    public static ResultError New(string type, string error)
+    {
+        return new ValidationError(type, error);
+    }
 }

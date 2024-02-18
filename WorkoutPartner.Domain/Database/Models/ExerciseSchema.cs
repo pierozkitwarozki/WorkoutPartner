@@ -7,6 +7,10 @@ namespace WorkoutPartner.Domain.Database.Models;
 public class ExerciseSchema : BaseEntity
 {
     /// <summary>
+    /// Schema name
+    /// </summary>
+    public string? Name { get; set; }
+    /// <summary>
     /// Foreign key for user that created the schema
     /// </summary>
     public required string UserId { get; set; }
