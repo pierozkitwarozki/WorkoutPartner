@@ -14,17 +14,22 @@ public class WeightWorkoutConverterTests
         
         // Act
         var response = 
-            WeightWorkoutConverter.Convert(schema)
+            WeightWorkoutConverter.ConvertExercise(schema)
                 .ToImmutableArray();
 
         // Assert
         response.Should().NotBeNull();
+        response.Length.Should().Be(sets);
+        
+        var setNumber = 1;
+        
         foreach (var workout in response)
         {
-            workout?.Sets.Should().Be(sets);
+            workout?.SetNumber.Should().Be(setNumber);
             workout?.Reps.Should().Be(reps);
             workout?.Weight.Should().BeNull();
             workout?.Unit.Should().BeNull();
+            setNumber++;
         }
     }
     
@@ -39,17 +44,22 @@ public class WeightWorkoutConverterTests
         
         // Act
         var response = 
-            WeightWorkoutConverter.Convert(schema)
+            WeightWorkoutConverter.ConvertExercise(schema)
                 .ToImmutableArray();
 
         // Assert
         response.Should().NotBeNull();
+        response.Length.Should().Be(1);
+        
+        var setNumber = 1;
+
         foreach (var workout in response)
         {
-            workout?.Sets.Should().Be(1);
-            workout?.Reps.Should().Be(reps);
-            workout?.Weight.Should().BeNull();
-            workout?.Unit.Should().BeNull();
+            workout.SetNumber.Should().Be(setNumber);
+            workout.Reps.Should().Be(reps);
+            workout.Weight.Should().BeNull();
+            workout.Unit.Should().BeNull();
+            setNumber++;
         }
     }
     
@@ -65,17 +75,22 @@ public class WeightWorkoutConverterTests
 
         // Act
         var response = 
-            WeightWorkoutConverter.Convert(schema)
+            WeightWorkoutConverter.ConvertExercise(schema)
                 .ToImmutableArray();
 
         // Assert
         response.Should().NotBeNull();
+        response.Length.Should().Be(1);
+        
+        var setNumber = 1;
+
         foreach (var workout in response)
         {
-            workout?.Sets.Should().Be(1);
-            workout?.Reps.Should().Be(reps);
-            workout?.Weight.Should().Be(weight);
-            workout?.Unit.Should().Be(unit);
+            workout.SetNumber.Should().Be(setNumber);
+            workout.Reps.Should().Be(reps);
+            workout.Weight.Should().Be(weight);
+            workout.Unit.Should().Be(unit);
+            setNumber++;
         }
     }
     
@@ -88,17 +103,22 @@ public class WeightWorkoutConverterTests
 
         // Act
         var response = 
-            WeightWorkoutConverter.Convert(schema)
+            WeightWorkoutConverter.ConvertExercise(schema)
                 .ToImmutableArray();
 
         // Assert
         response.Should().NotBeNull();
+        response.Length.Should().Be(sets);
+        
+        var setNumber = 1;
+
         foreach (var workout in response)
         {
-            workout?.Sets.Should().Be(sets);
-            workout?.Reps.Should().Be(reps);
-            workout?.Weight.Should().Be(weight);
-            workout?.Unit.Should().Be(unit);
+            workout.SetNumber.Should().Be(setNumber);
+            workout.Reps.Should().Be(reps);
+            workout.Weight.Should().Be(weight);
+            workout.Unit.Should().Be(unit);
+            setNumber++;
         }
     }
     
@@ -111,26 +131,31 @@ public class WeightWorkoutConverterTests
         [
             new WeightWorkout(1, "10", 40, "kg"),
             new WeightWorkout(2, "10", 50, "kg"),
-            new WeightWorkout(1, "8", 90, "kg"),
-            new WeightWorkout(1, "10", null, null),
-            new WeightWorkout(1, "M", 100, "lbs"),
+            new WeightWorkout(3, "10", 50, "kg"),
+            new WeightWorkout(4, "8", 90, "kg"),
+            new WeightWorkout(5, "10", null, null),
+            new WeightWorkout(6, "M", 100, "lbs"),
         ];
         
         // Act
         var response = 
-            WeightWorkoutConverter.Convert(schema)
+            WeightWorkoutConverter.ConvertExercise(schema)
                 .ToImmutableArray();
 
         // Assert
         response.Should().NotBeNull();
+        response.Length.Should().Be(6);
+        
         var i = 0;
+        var setNumber = 1;
         foreach (var workout in response)
         {
-            workout?.Sets.Should().Be(expectedWorkouts[i].Sets);
-            workout?.Reps.Should().Be(expectedWorkouts[i].Reps);
-            workout?.Weight.Should().Be(expectedWorkouts[i].Weight);
-            workout?.Unit.Should().Be(expectedWorkouts[i].Unit);
+            workout.SetNumber.Should().Be(setNumber);
+            workout.Reps.Should().Be(expectedWorkouts[i].Reps);
+            workout.Weight.Should().Be(expectedWorkouts[i].Weight);
+            workout.Unit.Should().Be(expectedWorkouts[i].Unit);
             i++;
+            setNumber++;
         }
     }
     
@@ -145,7 +170,7 @@ public class WeightWorkoutConverterTests
 
         // Act
         var response = 
-            WeightWorkoutConverter.Convert(schema)
+            WeightWorkoutConverter.ConvertExercise(schema)
                 .ToImmutableArray();
 
         // Assert
