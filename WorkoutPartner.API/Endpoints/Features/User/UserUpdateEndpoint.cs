@@ -6,6 +6,7 @@ using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Domain.DTO.UserUpdate;
 using WorkoutPartner.Domain.ResultType.Errors;
 using WorkoutPartner.Domain.Routes;
+using WorkoutPartner.Infrastructure.Extensions;
 
 namespace WorkoutPartner.API.Endpoints.Features.User;
 
@@ -28,13 +29,18 @@ public class UserUpdateEndpoint : IEndpointBase
 
             var result = await mediator.Send(command);
 
-            return result switch
+            if (result.IsNotFound())
             {
-                { IsFailure: true, Error.Type: nameof(NotFoundError) } => Results.NotFound(result.Error.Description),
-                { IsFailure: true, Error.Type: nameof(ValidationError) } => Results.UnprocessableEntity(result.Error
-                    .Description),
-                _ => result.IsFailure ? Results.BadRequest() : TypedResults.Ok(result.Value)
-            };
+                return Results.NotFound(result.Error);
+            }
+            if (result.IsValidationError())
+            {
+                return Results.UnprocessableEntity(result.Error);
+            }
+
+            return result.IsFailure 
+                ? Results.BadRequest(result.Error) 
+                : TypedResults.Ok(result.Value);
         })
         .RequireAuthorization();
     }

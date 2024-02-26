@@ -1,4 +1,5 @@
 using System.Text;
+using WorkoutPartner.Domain.ResultType.Errors.Codes;
 
 namespace WorkoutPartner.Domain.ResultType.Errors;
 
@@ -10,7 +11,7 @@ public class ValidationError(string type, string description) : ResultError(type
         sb.AppendJoin("\n", errors);
         
         return new ValidationError(
-            nameof(ValidationError), 
+            ValidationErrorCodes.GeneralValidation, 
             sb.ToString()
             );
     }

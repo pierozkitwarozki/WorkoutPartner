@@ -5,8 +5,8 @@ using WorkoutPartner.API.Endpoints.Configuration;
 using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Application.Extensions;
 using WorkoutPartner.Domain.DTO.EquipmentAdd;
-using WorkoutPartner.Domain.ResultType.Errors;
 using WorkoutPartner.Domain.Routes;
+using WorkoutPartner.Infrastructure.Extensions;
 
 namespace WorkoutPartner.API.Endpoints.Features.Equipment;
 
@@ -30,12 +30,14 @@ public class ExerciseAddEndpoint : IEndpointBase
 
                 var result = await mediator.Send(command);
 
-                return result switch
+                if (result.IsValidationError())
                 {
-                    { IsFailure: true, Error.Type: nameof(ValidationError) } => Results.UnprocessableEntity(result.Error
-                        .Description),
-                    _ => result.IsFailure ? Results.BadRequest() : TypedResults.Ok(result.Value)
-                };
+                    return Results.UnprocessableEntity(result.Error);
+                }
+
+                return result.IsFailure 
+                    ? Results.BadRequest(result.Error) 
+                    : TypedResults.Ok(result.Value);
             })
             .RequireAuthorization();
     }

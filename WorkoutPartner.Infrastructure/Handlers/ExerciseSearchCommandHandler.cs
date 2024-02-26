@@ -22,7 +22,7 @@ public class ExerciseSearchCommandHandler(IExerciseRepository exerciseRepository
 
         var exercises = await searchResult
             .Item1
-            .Select(exercise => ExerciseMapper.MapFromExerciseToExerciseAddResponse(exercise))
+            .Select(exercise => ExerciseMapper.MapFromEntity(exercise))
             .ToListAsync(cancellationToken);
 
         return Result<ExerciseSearchResponse>.Success(new ExerciseSearchResponse(searchResult.Item2, exercises));

@@ -16,7 +16,7 @@ public class EquipmentAddCommandHandler(
 {
     public async Task<Result<EquipmentAddResponse>> Handle(EquipmentAddCommand request, CancellationToken cancellationToken)
     {
-        var entity = EquipmentMapper.MapEquipmentAddRequestToEquipmentEntity(
+        var entity = EquipmentMapper.MapToEntity(
             request.Request,
             dateTimeService.Now(),
             request.UserId!);

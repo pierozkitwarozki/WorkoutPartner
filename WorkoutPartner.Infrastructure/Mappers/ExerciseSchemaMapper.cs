@@ -5,8 +5,8 @@ namespace WorkoutPartner.Infrastructure.Mappers;
 
 public static class ExerciseSchemaMapper
 {
-    public static ExerciseSchema MapExerciseSchemaAddRequestToExerciseSchemaEntity(
-        ExerciseSchemaAddRequest request, string userId, DateTime createdAt)
+    public static ExerciseSchema MapToEntity(
+        ExerciseSchemaAddItemRequestModel request, string userId, DateTime createdAt)
     {
         return new ExerciseSchema
         {

@@ -5,7 +5,7 @@ namespace WorkoutPartner.Infrastructure.Mappers;
 
 public static class EquipmentMapper
 {
-    public static Equipment MapEquipmentAddRequestToEquipmentEntity(EquipmentAddRequest request, DateTime createdAt, string ownerId)
+    public static Equipment MapToEntity(EquipmentAddRequest request, DateTime createdAt, string ownerId)
     {
         return new Equipment
         {

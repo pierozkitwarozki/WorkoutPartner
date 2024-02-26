@@ -5,7 +5,7 @@ namespace WorkoutPartner.Infrastructure.Mappers;
 
 public static class ExerciseMapper
 {
-    public static Exercise MapFromExerciseAddRequestToExerciseEntity(ExerciseAddRequest request, DateTime createdAt, string ownerId)
+    public static Exercise MapToEntity(ExerciseAddRequest request, DateTime createdAt, string ownerId)
     {
         return new Exercise
         {
@@ -20,7 +20,7 @@ public static class ExerciseMapper
         };
     }
 
-    public static ExerciseAddResponse MapFromExerciseToExerciseAddResponse(Exercise exercise)
+    public static ExerciseAddResponse MapFromEntity(Exercise exercise)
     {
         var equipment = exercise.ExerciseEquipments?
             .Select(e 

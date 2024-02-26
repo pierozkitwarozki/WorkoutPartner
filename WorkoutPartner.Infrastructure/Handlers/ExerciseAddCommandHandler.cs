@@ -19,7 +19,7 @@ public class ExerciseAddCommandHandler(
 {
     public async Task<Result<ExerciseAddResponse>> Handle(ExerciseAddCommand request, CancellationToken cancellationToken)
     {
-        var entity = ExerciseMapper.MapFromExerciseAddRequestToExerciseEntity(
+        var entity = ExerciseMapper.MapToEntity(
             request.Request, 
             dateTimeService.Now(),
             request.UserId!);
@@ -30,7 +30,7 @@ public class ExerciseAddCommandHandler(
         
         await exerciseRepository.SaveChangesAsync();
 
-        var response = ExerciseMapper.MapFromExerciseToExerciseAddResponse(entity);
+        var response = ExerciseMapper.MapFromEntity(entity);
 
         return Result<ExerciseAddResponse>.Success(response);
     }

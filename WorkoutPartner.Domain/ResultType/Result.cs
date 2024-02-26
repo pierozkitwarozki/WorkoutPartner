@@ -2,7 +2,7 @@ namespace WorkoutPartner.Domain.ResultType;
 
 public class Result(ResultError? error)
 {
-    public ResultError? Error { get; init; } = error;
+    public ResultError? Error { get; protected init; } = error;
     public static Result Failure(ResultError error) => new(error);
 }
 
