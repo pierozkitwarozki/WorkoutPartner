@@ -12,6 +12,8 @@ internal static class RepositoriesInstaller
         services.AddScoped<IEquipmentRepository, EquipmentRepository>();
         services.AddScoped<IExerciseEquipmentRepository, ExerciseEquipmentRepository>();
         services.AddScoped<IExerciseSchemaRepository, ExerciseSchemaRepository>();
+        services.AddScoped<IWorkoutPlanSchemaRepository, WorkoutPlanSchemaRepository>();
+        services.AddScoped<IExerciseSchemaWorkoutPlanSchemaRepository, ExerciseSchemaWorkoutPlanSchemaRepository>();
         return services;
     }
 }

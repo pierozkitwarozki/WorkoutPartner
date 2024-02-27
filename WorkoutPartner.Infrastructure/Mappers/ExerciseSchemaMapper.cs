@@ -3,9 +3,9 @@ using WorkoutPartner.Domain.DTO.ExerciseSchemaAdd;
 
 namespace WorkoutPartner.Infrastructure.Mappers;
 
-public static class ExerciseSchemaMapper
+internal static class ExerciseSchemaMapper
 {
-    public static ExerciseSchema MapToEntity(
+    internal static ExerciseSchema MapToEntity(
         ExerciseSchemaAddItemRequestModel request, string userId, DateTime createdAt)
     {
         return new ExerciseSchema

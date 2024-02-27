@@ -3,9 +3,9 @@ using WorkoutPartner.Domain.DTO.ExerciseAdd;
 
 namespace WorkoutPartner.Infrastructure.Mappers;
 
-public static class ExerciseMapper
+internal static class ExerciseMapper
 {
-    public static Exercise MapToEntity(ExerciseAddRequest request, DateTime createdAt, string ownerId)
+    internal static Exercise MapToEntity(ExerciseAddRequest request, DateTime createdAt, string ownerId)
     {
         return new Exercise
         {
@@ -20,7 +20,7 @@ public static class ExerciseMapper
         };
     }
 
-    public static ExerciseAddResponse MapFromEntity(Exercise exercise)
+    internal static ExerciseAddResponse MapFromEntity(Exercise exercise)
     {
         var equipment = exercise.ExerciseEquipments?
             .Select(e 

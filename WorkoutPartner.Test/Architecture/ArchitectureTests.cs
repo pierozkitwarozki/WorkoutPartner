@@ -1,6 +1,6 @@
 using NetArchTest.Rules;
-using WorkoutPartner.Application.Services.Implementations;
-using WorkoutPartner.Application.Services.Interfaces;
+using WorkoutPartner.Application.Services;
+using WorkoutPartner.Infrastructure.Services;
 
 namespace WorkoutPartner.Test.Architecture;
 

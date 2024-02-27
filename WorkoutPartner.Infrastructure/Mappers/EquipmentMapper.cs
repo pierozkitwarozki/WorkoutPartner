@@ -3,9 +3,9 @@ using WorkoutPartner.Domain.DTO.EquipmentAdd;
 
 namespace WorkoutPartner.Infrastructure.Mappers;
 
-public static class EquipmentMapper
+internal static class EquipmentMapper
 {
-    public static Equipment MapToEntity(EquipmentAddRequest request, DateTime createdAt, string ownerId)
+    internal static Equipment MapToEntity(EquipmentAddRequest request, DateTime createdAt, string ownerId)
     {
         return new Equipment
         {

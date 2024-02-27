@@ -1,12 +1,12 @@
 using FluentValidation;
 using WorkoutPartner.Application.Commands;
-using WorkoutPartner.Domain.DTO.PlanSchemaAdd;
+using WorkoutPartner.Domain.DTO.WorkoutPlanSchemaAdd;
 
 namespace WorkoutPartner.Infrastructure.Validators;
 
-public class PlanSchemaAddCommandValidator : AbstractValidator<PlanSchemaAddCommand>
+public class WorkoutPlanSchemaAddCommandValidator : AbstractValidator<WorkoutPlanSchemaAddCommand>
 {
-    public PlanSchemaAddCommandValidator()
+    public WorkoutPlanSchemaAddCommandValidator()
     {
         RuleFor(x => x.UserId)
             .NotEmpty()
@@ -20,13 +20,13 @@ public class PlanSchemaAddCommandValidator : AbstractValidator<PlanSchemaAddComm
             .NotEmpty();
 
         RuleForEach(x => x.Request.Exercises)
-            .SetValidator(new PlanSchemaAddItemRequestModelValidator());
+            .SetValidator(new WorkoutPlanSchemaAddItemRequestModelValidator());
     }
 }
 
-file class PlanSchemaAddItemRequestModelValidator : AbstractValidator<PlanSchemaAddItemRequestModel> 
+file class WorkoutPlanSchemaAddItemRequestModelValidator : AbstractValidator<WorkoutPlanSchemaAddItemRequestModel> 
 {
-    public PlanSchemaAddItemRequestModelValidator()
+    public WorkoutPlanSchemaAddItemRequestModelValidator()
     {
         RuleFor(x => x.Order)
             .GreaterThanOrEqualTo(0);

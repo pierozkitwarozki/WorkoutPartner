@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
-using WorkoutPartner.Application.Services.Implementations;
-using WorkoutPartner.Application.Services.Interfaces;
+using WorkoutPartner.Application.Services;
+using WorkoutPartner.Infrastructure.Services;
 
 namespace WorkoutPartner.Infrastructure.Configuration;
 

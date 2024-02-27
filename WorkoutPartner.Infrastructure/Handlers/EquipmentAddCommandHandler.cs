@@ -1,7 +1,7 @@
 using MediatR;
 using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Application.Repositories.Interfaces;
-using WorkoutPartner.Application.Services.Interfaces;
+using WorkoutPartner.Application.Services;
 using WorkoutPartner.Domain.Database.Models;
 using WorkoutPartner.Domain.DTO.EquipmentAdd;
 using WorkoutPartner.Domain.ResultType;

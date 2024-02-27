@@ -2,7 +2,7 @@ using System.Collections.Immutable;
 using MediatR;
 using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Application.Repositories.Interfaces;
-using WorkoutPartner.Application.Services.Interfaces;
+using WorkoutPartner.Application.Services;
 using WorkoutPartner.Domain.Database.Models;
 using WorkoutPartner.Domain.DTO.ExerciseAdd;
 using WorkoutPartner.Domain.ResultType;

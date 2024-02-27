@@ -1,4 +1,4 @@
-namespace WorkoutPartner.Application.Services.Interfaces;
+namespace WorkoutPartner.Application.Services;
 
 public interface IDateTimeService
 {
