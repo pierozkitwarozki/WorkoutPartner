@@ -8,7 +8,7 @@ using WorkoutPartner.Infrastructure.Extensions;
 
 namespace WorkoutPartner.API.Endpoints.Features.Exercise;
 
-public class ExerciseSearchEndpoint : IEndpointBase
+public sealed class ExerciseSearchEndpoint : IEndpointBase
 {
     public string Group => RouteGroupNames.Exercise;
     public string Route => RouteNames.Search;

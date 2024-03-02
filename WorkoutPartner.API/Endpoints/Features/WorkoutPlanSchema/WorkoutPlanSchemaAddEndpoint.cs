@@ -4,14 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using WorkoutPartner.API.Endpoints.Configuration;
 using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Application.Extensions;
-using WorkoutPartner.Domain.DTO.ExerciseSchemaAdd;
 using WorkoutPartner.Domain.DTO.WorkoutPlanSchemaAdd;
 using WorkoutPartner.Domain.Routes;
 using WorkoutPartner.Infrastructure.Extensions;
 
 namespace WorkoutPartner.API.Endpoints.Features.WorkoutPlanSchema;
 
-public class WorkoutPlanSchemaAddEndpoint : IEndpointBase
+public sealed class WorkoutPlanSchemaAddEndpoint : IEndpointBase
 {
     public string Group => RouteGroupNames.WorkoutPlanSchema;
     public string Route => RouteNames.Add;

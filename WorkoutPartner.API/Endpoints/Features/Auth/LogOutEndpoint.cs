@@ -5,7 +5,7 @@ using WorkoutPartner.Domain.Routes;
 
 namespace WorkoutPartner.API.Endpoints.Features.Auth;
 
-public class LogOutEndpoint : IEndpointBase
+public sealed class LogOutEndpoint : IEndpointBase
 {
     public string Group => RouteGroupNames.Auth;
     public string Route => RouteNames.LogOut;

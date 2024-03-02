@@ -10,7 +10,7 @@ using WorkoutPartner.Infrastructure.Extensions;
 
 namespace WorkoutPartner.API.Endpoints.Features.Exercise;
 
-public class ExerciseAddEndpoint : IEndpointBase
+public sealed class ExerciseAddEndpoint : IEndpointBase
 {
     public string Group => RouteGroupNames.Exercise;
     public string Route => RouteNames.Add;

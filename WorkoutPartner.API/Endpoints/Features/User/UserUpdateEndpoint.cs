@@ -10,7 +10,7 @@ using WorkoutPartner.Infrastructure.Extensions;
 
 namespace WorkoutPartner.API.Endpoints.Features.User;
 
-public class UserUpdateEndpoint : IEndpointBase
+public sealed class UserUpdateEndpoint : IEndpointBase
 {
     public string Group => RouteGroupNames.User;
     public string Route => RouteNames.Update;
