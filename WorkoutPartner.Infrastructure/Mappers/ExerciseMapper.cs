@@ -1,11 +1,16 @@
 using WorkoutPartner.Domain.Database.Models;
 using WorkoutPartner.Domain.DTO.ExerciseAdd;
+using WorkoutPartner.Infrastructure.Converters;
 
 namespace WorkoutPartner.Infrastructure.Mappers;
 
 internal static class ExerciseMapper
 {
-    internal static Exercise MapToEntity(ExerciseAddRequest request, DateTime createdAt, string ownerId)
+    internal static Exercise MapToEntity(
+        ExerciseAddRequest request, 
+        DateTime createdAt, 
+        string ownerId
+        )
     {
         return new Exercise
         {
@@ -16,7 +21,8 @@ internal static class ExerciseMapper
             Type = request.Type,
             VideoUrl = request.VideoUrl,
             ImageUrl = request.ImageUrl,
-            OwnerId = ownerId
+            OwnerId = ownerId,
+            BodyParts = request.BodyParts.ConvertToBodyParts()
         };
     }
 

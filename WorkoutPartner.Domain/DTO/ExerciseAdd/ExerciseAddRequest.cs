@@ -6,6 +6,7 @@ public record ExerciseAddRequest(
     string Name, 
     ExerciseType Type, 
     IEnumerable<Guid>? EquipmentIds, 
+    IEnumerable<int>? BodyParts,
     string? Description, 
     string? VideoUrl,
     string? ImageUrl

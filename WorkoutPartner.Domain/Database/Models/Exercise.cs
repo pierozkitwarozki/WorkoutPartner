@@ -24,6 +24,10 @@ public class Exercise : BaseEntity
     /// </summary>
     public string? ImageUrl { get; set; }
     /// <summary>
+    /// Optional: Body parts used in that exercise
+    /// </summary>
+    public BodyParts BodyParts { get; set; }
+    /// <summary>
     /// One of exercise types
     /// </summary>
     public required ExerciseType Type { get; set; }
