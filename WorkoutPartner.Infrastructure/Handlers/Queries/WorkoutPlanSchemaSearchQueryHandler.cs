@@ -15,12 +15,12 @@ public class WorkoutPlanSchemaSearchQueryHandler(IWorkoutPlanSchemaRepository wo
     {
         var searchPhrase = request.Request.Name ?? string.Empty;
 
-        var (baseQuery, containsMore) = workoutPlanSchemaRepository
+        var (query, containsMore) = workoutPlanSchemaRepository
             .WherePaged(request.Request, schema => 
                 schema.Name.ToLower().Contains(searchPhrase)
                 && schema.UserId == request.UserId);
 
-        var entities = await baseQuery.ToListAsync(cancellationToken: cancellationToken);
+        var entities = await query.ToListAsync(cancellationToken: cancellationToken);
 
         var orderedSchemas =
             WorkoutPlanSchemaMapper.MapFromEntities(entities)
