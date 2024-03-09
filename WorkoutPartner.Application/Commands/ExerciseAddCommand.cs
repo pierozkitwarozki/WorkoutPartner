@@ -7,6 +7,6 @@ namespace WorkoutPartner.Application.Commands;
 
 public class ExerciseAddCommand : IRequest<Result<ExerciseAddResponse>>
 {
-    public required string? UserId { get; set; }
+    public required string? UserId { get; init; }
     public required ExerciseAddRequest Request { get; init; }
 }
