@@ -8,7 +8,7 @@ public class Equipment : BaseEntity
     /// <summary>
     /// Foreign key for user that created entity
     /// </summary>
-    public string OwnerId { get; set; }
+    public required string OwnerId { get; init; }
     /// <summary>
     /// Equipment Name
     /// </summary>
