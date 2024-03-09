@@ -4,7 +4,7 @@ using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Application.Repositories.Interfaces;
 using WorkoutPartner.Application.Services;
 using WorkoutPartner.Domain.Database.Models;
-using WorkoutPartner.Domain.DTO.ExerciseSchemaAdd;
+using WorkoutPartner.Domain.DTO.Commands.ExerciseSchemaAdd;
 using WorkoutPartner.Domain.ResultType;
 using WorkoutPartner.Domain.ResultType.Errors;
 using WorkoutPartner.Domain.ResultType.Errors.Codes;

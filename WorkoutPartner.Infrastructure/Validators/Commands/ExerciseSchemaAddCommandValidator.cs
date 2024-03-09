@@ -1,6 +1,6 @@
 using FluentValidation;
 using WorkoutPartner.Application.Commands;
-using WorkoutPartner.Domain.DTO.ExerciseSchemaAdd;
+using WorkoutPartner.Domain.DTO.Commands.ExerciseSchemaAdd;
 
 namespace WorkoutPartner.Infrastructure.Validators.Commands;
 

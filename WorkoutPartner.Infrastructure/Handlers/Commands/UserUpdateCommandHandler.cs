@@ -2,7 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Domain.Database.Models;
-using WorkoutPartner.Domain.DTO.UserUpdate;
+using WorkoutPartner.Domain.DTO.Commands.UserUpdate;
 using WorkoutPartner.Domain.ResultType;
 using WorkoutPartner.Domain.ResultType.Errors;
 

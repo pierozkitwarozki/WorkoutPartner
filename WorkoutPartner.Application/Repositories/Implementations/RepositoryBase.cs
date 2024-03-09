@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Query;
 using WorkoutPartner.Application.Database;
 using WorkoutPartner.Application.Repositories.Interfaces;
 using WorkoutPartner.Domain.Database.Models;
-using WorkoutPartner.Domain.DTO.Paging;
+using WorkoutPartner.Domain.DTO.Queries.Paging;
 
 namespace WorkoutPartner.Application.Repositories.Implementations;
 

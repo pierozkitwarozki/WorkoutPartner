@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore.Query;
 using WorkoutPartner.Domain.Database.Models;
-using WorkoutPartner.Domain.DTO.Paging;
+using WorkoutPartner.Domain.DTO.Queries.Paging;
 
 namespace WorkoutPartner.Application.Repositories.Interfaces;
 

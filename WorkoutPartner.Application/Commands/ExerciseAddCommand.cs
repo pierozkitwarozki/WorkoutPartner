@@ -1,6 +1,6 @@
 using System.Security.Claims;
 using MediatR;
-using WorkoutPartner.Domain.DTO.ExerciseAdd;
+using WorkoutPartner.Domain.DTO.Commands.ExerciseAdd;
 using WorkoutPartner.Domain.ResultType;
 
 namespace WorkoutPartner.Application.Commands;

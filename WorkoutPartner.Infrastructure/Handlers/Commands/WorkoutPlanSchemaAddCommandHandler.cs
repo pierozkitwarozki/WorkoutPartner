@@ -2,7 +2,7 @@ using MediatR;
 using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Application.Repositories.Interfaces;
 using WorkoutPartner.Application.Services;
-using WorkoutPartner.Domain.DTO.WorkoutPlanSchemaAdd;
+using WorkoutPartner.Domain.DTO.Commands.WorkoutPlanSchemaAdd;
 using WorkoutPartner.Domain.ResultType;
 using WorkoutPartner.Infrastructure.Mappers;
 

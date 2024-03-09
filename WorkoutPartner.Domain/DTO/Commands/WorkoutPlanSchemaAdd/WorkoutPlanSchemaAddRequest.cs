@@ -1,4 +1,4 @@
-namespace WorkoutPartner.Domain.DTO.WorkoutPlanSchemaAdd;
+namespace WorkoutPartner.Domain.DTO.Commands.WorkoutPlanSchemaAdd;
 
 public record WorkoutPlanSchemaAddRequest(
     string Name, 

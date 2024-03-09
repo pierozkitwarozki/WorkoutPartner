@@ -1,3 +1,3 @@
-namespace WorkoutPartner.Domain.DTO.EquipmentAdd;
+namespace WorkoutPartner.Domain.DTO.Commands.EquipmentAdd;
 
 public record EquipmentAddRequest(string Name, string? Description);

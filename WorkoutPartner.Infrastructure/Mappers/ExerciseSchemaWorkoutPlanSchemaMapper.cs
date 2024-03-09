@@ -1,6 +1,6 @@
 using System.Collections.Immutable;
 using WorkoutPartner.Domain.Database.Models;
-using WorkoutPartner.Domain.DTO.WorkoutPlanSchemaAdd;
+using WorkoutPartner.Domain.DTO.Commands.WorkoutPlanSchemaAdd;
 
 namespace WorkoutPartner.Infrastructure.Mappers;
 

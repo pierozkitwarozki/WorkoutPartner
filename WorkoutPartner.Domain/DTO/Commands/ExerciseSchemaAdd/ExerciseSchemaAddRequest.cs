@@ -1,4 +1,4 @@
-namespace WorkoutPartner.Domain.DTO.ExerciseSchemaAdd;
+namespace WorkoutPartner.Domain.DTO.Commands.ExerciseSchemaAdd;
 
 public record ExerciseSchemaAddRequest(
     IEnumerable<ExerciseSchemaAddItemRequestModel> Schemas

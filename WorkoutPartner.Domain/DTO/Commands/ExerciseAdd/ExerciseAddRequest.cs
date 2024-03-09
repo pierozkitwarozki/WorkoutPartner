@@ -1,6 +1,6 @@
 using WorkoutPartner.Domain.Database.Enums;
 
-namespace WorkoutPartner.Domain.DTO.ExerciseAdd;
+namespace WorkoutPartner.Domain.DTO.Commands.ExerciseAdd;
 
 public record ExerciseAddRequest(
     string Name, 

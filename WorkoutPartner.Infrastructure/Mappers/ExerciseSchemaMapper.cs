@@ -1,5 +1,5 @@
 using WorkoutPartner.Domain.Database.Models;
-using WorkoutPartner.Domain.DTO.ExerciseSchemaAdd;
+using WorkoutPartner.Domain.DTO.Commands.ExerciseSchemaAdd;
 
 namespace WorkoutPartner.Infrastructure.Mappers;
 

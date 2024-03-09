@@ -1,5 +1,5 @@
 using MediatR;
-using WorkoutPartner.Domain.DTO.ExerciseSchemaAdd;
+using WorkoutPartner.Domain.DTO.Commands.ExerciseSchemaAdd;
 using WorkoutPartner.Domain.ResultType;
 
 namespace WorkoutPartner.Application.Commands;

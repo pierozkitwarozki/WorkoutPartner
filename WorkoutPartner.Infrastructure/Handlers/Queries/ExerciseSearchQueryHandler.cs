@@ -1,9 +1,8 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Application.Queries;
 using WorkoutPartner.Application.Repositories.Interfaces;
-using WorkoutPartner.Domain.DTO.ExerciseSearch;
+using WorkoutPartner.Domain.DTO.Queries.ExerciseSearch;
 using WorkoutPartner.Domain.ResultType;
 using WorkoutPartner.Infrastructure.Mappers;
 

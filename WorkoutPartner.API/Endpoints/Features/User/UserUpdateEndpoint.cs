@@ -3,7 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using WorkoutPartner.API.Endpoints.Configuration;
 using WorkoutPartner.Application.Commands;
-using WorkoutPartner.Domain.DTO.UserUpdate;
+using WorkoutPartner.Domain.DTO.Commands.UserUpdate;
 using WorkoutPartner.Domain.ResultType.Errors;
 using WorkoutPartner.Domain.Routes;
 using WorkoutPartner.Infrastructure.Extensions;

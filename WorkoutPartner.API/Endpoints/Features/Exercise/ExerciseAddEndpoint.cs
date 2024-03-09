@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using WorkoutPartner.API.Endpoints.Configuration;
 using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Application.Extensions;
-using WorkoutPartner.Domain.DTO.ExerciseAdd;
+using WorkoutPartner.Domain.DTO.Commands.ExerciseAdd;
 using WorkoutPartner.Domain.Routes;
 using WorkoutPartner.Infrastructure.Extensions;
 

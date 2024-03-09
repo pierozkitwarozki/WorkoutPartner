@@ -1,6 +1,6 @@
 using WorkoutPartner.Domain.Models;
 
-namespace WorkoutPartner.Domain.DTO.ExerciseSchemaAdd;
+namespace WorkoutPartner.Domain.DTO.Commands.ExerciseSchemaAdd;
 
 public record ExerciseSchemaAddResponse(IEnumerable<ExerciseSchemaAddItemResponseModel> Schemas);
 public record ExerciseSchemaAddItemResponseModel(

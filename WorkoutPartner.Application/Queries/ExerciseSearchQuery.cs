@@ -1,5 +1,5 @@
 using MediatR;
-using WorkoutPartner.Domain.DTO.ExerciseSearch;
+using WorkoutPartner.Domain.DTO.Queries.ExerciseSearch;
 using WorkoutPartner.Domain.ResultType;
 
 namespace WorkoutPartner.Application.Queries;
