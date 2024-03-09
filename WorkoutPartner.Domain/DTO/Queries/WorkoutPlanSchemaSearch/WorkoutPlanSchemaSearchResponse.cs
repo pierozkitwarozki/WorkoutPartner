@@ -6,4 +6,9 @@ public record WorkoutPlanSchemaSearchResponse(
     bool ContainsMore, 
     IEnumerable<WorkoutPlanSchemaSearchItemResponseModel> Plans) : PageResponse(ContainsMore);
 
-public record WorkoutPlanSchemaSearchItemResponseModel(string Name, Guid ExerciseId);
+public record WorkoutPlanSchemaSearchItemResponseModel(
+    Guid Id, 
+    string Name, 
+    string? Description, 
+    DateTime CreatedAt
+    );

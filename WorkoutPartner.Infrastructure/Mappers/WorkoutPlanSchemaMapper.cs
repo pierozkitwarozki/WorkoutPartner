@@ -1,5 +1,7 @@
+using System.Collections.Immutable;
 using WorkoutPartner.Domain.Database.Models;
 using WorkoutPartner.Domain.DTO.Commands.WorkoutPlanSchemaAdd;
+using WorkoutPartner.Domain.DTO.Queries.WorkoutPlanSchemaSearch;
 
 namespace WorkoutPartner.Infrastructure.Mappers;
 
@@ -15,5 +17,18 @@ internal static class WorkoutPlanSchemaMapper
             Name = request.Name,
             Id = Guid.NewGuid()
         };
+    }
+
+    internal static IImmutableList<WorkoutPlanSchemaSearchItemResponseModel> MapFromEntities(
+        IEnumerable<WorkoutPlanSchema> entities)
+    {
+        return entities.Select(e =>
+            new WorkoutPlanSchemaSearchItemResponseModel(
+                e.Id, 
+                e.Name, 
+                e.Description, 
+                e.CreatedAt
+                )
+        ).ToImmutableList();
     }
 }

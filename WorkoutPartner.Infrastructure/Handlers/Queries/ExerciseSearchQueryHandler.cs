@@ -15,16 +15,15 @@ public class ExerciseSearchQueryHandler(IExerciseRepository exerciseRepository)
     {
         var searchPhrase = request.Request.Phrase?.ToLower() ?? string.Empty;
         
-        var searchResult = exerciseRepository
+        var (query, containsMore) = exerciseRepository
             .WherePaged(request.Request,
                 exercise
                     => exercise.Name.ToLower().Contains(searchPhrase));
 
-        var exercises = await searchResult
-            .Item1
+        var exercises = await query
             .Select(exercise => ExerciseMapper.MapFromEntity(exercise))
             .ToListAsync(cancellationToken);
 
-        return Result<ExerciseSearchResponse>.Success(new ExerciseSearchResponse(searchResult.Item2, exercises));
+        return Result<ExerciseSearchResponse>.Success(new ExerciseSearchResponse(containsMore, exercises));
     }
 }
