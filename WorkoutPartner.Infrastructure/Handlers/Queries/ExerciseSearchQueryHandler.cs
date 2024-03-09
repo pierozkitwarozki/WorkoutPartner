@@ -1,17 +1,18 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using WorkoutPartner.Application.Commands;
+using WorkoutPartner.Application.Queries;
 using WorkoutPartner.Application.Repositories.Interfaces;
 using WorkoutPartner.Domain.DTO.ExerciseSearch;
 using WorkoutPartner.Domain.ResultType;
 using WorkoutPartner.Infrastructure.Mappers;
 
-namespace WorkoutPartner.Infrastructure.Handlers;
+namespace WorkoutPartner.Infrastructure.Handlers.Queries;
 
-public class ExerciseSearchCommandHandler(IExerciseRepository exerciseRepository)
-    : IRequestHandler<ExerciseSearchCommand, Result<ExerciseSearchResponse>>
+public class ExerciseSearchQueryHandler(IExerciseRepository exerciseRepository)
+    : IRequestHandler<ExerciseSearchQuery, Result<ExerciseSearchResponse>>
 {
-    public async Task<Result<ExerciseSearchResponse>> Handle(ExerciseSearchCommand request, CancellationToken cancellationToken)
+    public async Task<Result<ExerciseSearchResponse>> Handle(ExerciseSearchQuery request, CancellationToken cancellationToken)
     {
         var searchPhrase = request.Request.Phrase?.ToLower() ?? string.Empty;
         

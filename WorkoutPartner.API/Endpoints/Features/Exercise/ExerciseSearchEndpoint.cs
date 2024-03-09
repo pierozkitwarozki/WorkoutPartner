@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using WorkoutPartner.API.Endpoints.Configuration;
 using WorkoutPartner.Application.Commands;
+using WorkoutPartner.Application.Queries;
 using WorkoutPartner.Domain.DTO.ExerciseSearch;
 using WorkoutPartner.Domain.Routes;
 using WorkoutPartner.Infrastructure.Extensions;
@@ -19,7 +20,7 @@ public sealed class ExerciseSearchEndpoint : IEndpointBase
                     [AsParameters] ExerciseSearchRequest payload,
                     [FromServices] IMediator mediator) =>
                 {
-                    var command = new ExerciseSearchCommand
+                    var command = new ExerciseSearchQuery
                     {
                         Request = payload
                     };

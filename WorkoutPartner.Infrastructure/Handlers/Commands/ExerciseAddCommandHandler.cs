@@ -8,7 +8,7 @@ using WorkoutPartner.Domain.DTO.ExerciseAdd;
 using WorkoutPartner.Domain.ResultType;
 using WorkoutPartner.Infrastructure.Mappers;
 
-namespace WorkoutPartner.Infrastructure.Handlers;
+namespace WorkoutPartner.Infrastructure.Handlers.Commands;
 
 public class ExerciseAddCommandHandler(
     IExerciseRepository exerciseRepository,

@@ -2,12 +2,11 @@ using MediatR;
 using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Application.Repositories.Interfaces;
 using WorkoutPartner.Application.Services;
-using WorkoutPartner.Domain.Database.Models;
 using WorkoutPartner.Domain.DTO.EquipmentAdd;
 using WorkoutPartner.Domain.ResultType;
 using WorkoutPartner.Infrastructure.Mappers;
 
-namespace WorkoutPartner.Infrastructure.Handlers;
+namespace WorkoutPartner.Infrastructure.Handlers.Commands;
 
 public class EquipmentAddCommandHandler(
     IEquipmentRepository equipmentRepository,

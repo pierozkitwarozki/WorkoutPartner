@@ -11,7 +11,7 @@ using WorkoutPartner.Domain.ResultType.Errors.Codes;
 using WorkoutPartner.Infrastructure.Converters;
 using WorkoutPartner.Infrastructure.Mappers;
 
-namespace WorkoutPartner.Infrastructure.Handlers;
+namespace WorkoutPartner.Infrastructure.Handlers.Commands;
 
 public class ExerciseSchemaAddCommandHandler(IExerciseSchemaRepository exerciseSchemaRepository, IDateTimeService dateTimeService)
     : IRequestHandler<ExerciseSchemaAddCommand, Result<ExerciseSchemaAddResponse>>

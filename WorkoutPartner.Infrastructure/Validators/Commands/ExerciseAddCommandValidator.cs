@@ -1,7 +1,7 @@
 using FluentValidation;
 using WorkoutPartner.Application.Commands;
 
-namespace WorkoutPartner.Infrastructure.Validators;
+namespace WorkoutPartner.Infrastructure.Validators.Commands;
 
 public class ExerciseAddCommandValidator : AbstractValidator<ExerciseAddCommand>
 {

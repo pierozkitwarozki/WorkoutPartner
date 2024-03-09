@@ -6,7 +6,7 @@ using WorkoutPartner.Domain.DTO.UserUpdate;
 using WorkoutPartner.Domain.ResultType;
 using WorkoutPartner.Domain.ResultType.Errors;
 
-namespace WorkoutPartner.Infrastructure.Handlers;
+namespace WorkoutPartner.Infrastructure.Handlers.Commands;
 
 public class UserUpdateCommandHandler(UserManager<ApplicationUser> userManager)
     : IRequestHandler<UserUpdateCommand, Result<UserUpdateResponse>>

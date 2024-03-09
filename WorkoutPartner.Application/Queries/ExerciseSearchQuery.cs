@@ -2,9 +2,9 @@ using MediatR;
 using WorkoutPartner.Domain.DTO.ExerciseSearch;
 using WorkoutPartner.Domain.ResultType;
 
-namespace WorkoutPartner.Application.Commands;
+namespace WorkoutPartner.Application.Queries;
 
-public class ExerciseSearchCommand : IRequest<Result<ExerciseSearchResponse>>
+public class ExerciseSearchQuery : IRequest<Result<ExerciseSearchResponse>>
 {
     public required ExerciseSearchRequest Request { get; init; }
 }

@@ -2,7 +2,7 @@ using FluentValidation;
 using WorkoutPartner.Application.Commands;
 using WorkoutPartner.Domain.DTO.ExerciseSchemaAdd;
 
-namespace WorkoutPartner.Infrastructure.Validators;
+namespace WorkoutPartner.Infrastructure.Validators.Commands;
 
 public class ExerciseSchemaAddCommandValidator : AbstractValidator<ExerciseSchemaAddCommand>
 {

@@ -6,7 +6,7 @@ using WorkoutPartner.Domain.DTO.WorkoutPlanSchemaAdd;
 using WorkoutPartner.Domain.ResultType;
 using WorkoutPartner.Infrastructure.Mappers;
 
-namespace WorkoutPartner.Infrastructure.Handlers;
+namespace WorkoutPartner.Infrastructure.Handlers.Commands;
 
 public class WorkoutPlanSchemaAddCommandHandler(
     IDateTimeService dateTimeService,
