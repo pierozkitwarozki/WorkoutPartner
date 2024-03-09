@@ -17,7 +17,8 @@ public class WorkoutPlanSchemaSearchQueryHandler(IWorkoutPlanSchemaRepository wo
 
         var (baseQuery, containsMore) = workoutPlanSchemaRepository
             .WherePaged(request.Request, schema => 
-                schema.Name.ToLower().Contains(searchPhrase));
+                schema.Name.ToLower().Contains(searchPhrase)
+                && schema.UserId == request.UserId);
 
         var entities = await baseQuery.ToListAsync(cancellationToken: cancellationToken);
 
